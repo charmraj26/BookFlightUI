@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  public blueBg: string= "assets/images/bluebg.jpg"
 
   constructor() { }
 
