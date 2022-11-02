@@ -1,15 +1,92 @@
 <div class="bgblue">
-<mat-toolbar class="toptool">
-    <div class="container-fluid mt-3">
-        <div class="row">
-            <div class="col-sm-8 ">
-                <mat-icon class="flight-main-icon">flight</mat-icon>
-                <span>FLIGHT BOOKING</span>
+    <div>
+        <mat-toolbar class="toptool">
+            <div class="container-fluid mt-3">
+                <div class="row">
+                    <div class="col-sm-8 ">
+                        <mat-icon class="flight-main-icon">flight</mat-icon>
+                        <span>FLIGHT BOOKING</span>
+                    </div>
+                    <div class="col-lg-4">
+                        <p class="fsize">Customer Care : 8888888888 | Feel free to contant us.</p>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-4">
-                <p class="fsize">Customer Care : 8888888888 | Feel free to contant us.</p>
+        </mat-toolbar>
+    </div>
+    <div class="row bgshade ms-2">
+        <div class="col-sm-6 mtsize">
+            <form [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-2 pb-2">
+                            <label class="mt-2" for="username">USERNAME</label>
+                        </div>
+                        <div class='col-lg-10'>
+                            <input type="text" formControlName="username" placeholder="Enter Username"
+                                class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+                            <div *ngIf="submitted && f.username.errors" class="invalid-feedback errortext">
+                                <div *ngIf="f.username.errors.required">*Username is required</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group mt-3">
+                    <div class="row">
+                        <div class="col-md-2 pb-2">
+                            <label class="mt-3" for="password">PASSWORD</label>
+                        </div>
+                        <div class="col-lg-10">
+                            <input type="password" formControlName="password" placeholder="Enter Password"
+                                class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback errortext">
+                                <div *ngIf="f.password.errors.required">*Password is required</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7"></div>
+                    <div class="col-md-2 mt-3">
+                        <button class="btn btn-success">LOGIN</button>
+                    </div>
+                    <div class="col-md-3 mt-3">
+                        <button class="btn btn-primary" routerLink="/register">SIGN UP</button>
+                    </div>
+                </div>
+            </form>
+            <h3 >Enjoy the experience of sky journey with us by Login/Sign Up</h3>
+            <ol class="orderlist">
+                <li> Click the <button class="btn btn-primary btnsmall" disabled>SIGN UP</button></li>
+                <li>Provide the required details for Sign Up.</li>
+                <li><button class="btn btn-success btnsmall" disabled>LOGIN</button> to the application.</li>
+                <li>Book your <mat-icon class="flight-list-icon">flight</mat-icon>tickets.</li>
+                <li>Enjoy the journey.</li>
+            </ol>
+        </div>
+        <div class="col-md-6 mtsize">
+            <div class="card cardsize">
+                <div class="card-body">
+                    <img class="flightsize" [src]="flightimg">
+                    <div class="flighttexthead">
+                        <h2>
+                            <mat-icon class="flight-list-icon">flight</mat-icon>
+                            WELCOME TO FLIGHT BOOKING
+                            <mat-icon class="flight-list-icon">flight</mat-icon>
+                        </h2>
+                    </div>
+                    <div class="flighttext">
+                        <p>When once you have tasted flight, you will forever walk the earth with your eyes turned
+                            skyward,for there you have been, and there you will always long to return.</p>
+                        <p>Man must rise above the Earth-to the top of the atmosphere and beyond-for only thus will 
+                            he fully understand the world in which he lives.</p>
+                        <p>Within all of us is a varying amount of space lint and star dust, the residue from our
+                            creation. Most are too busy to notice it, and it is stronger in some than others. It is
+                            strongest in those of us who fly and is responsible for an unconscious, subtle desire to
+                            slip into some wings and try for the elusive boundaries of our origin.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</mat-toolbar>
 </div>
