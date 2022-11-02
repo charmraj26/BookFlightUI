@@ -2,7 +2,25 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
 .flight-main-icon{
     margin-right: 15px;
     vertical-align:middle;
   }
+
+/* snackBar start*/
+  .failure-snackbar{
+    background-color: rgb(181, 62, 62);
+    color: white;
+  }
+  .btnfail-snackbar button{
+    color: white;
+  }
+  .success-snackbar{
+    background-color: green;
+    color: white;
+  }
+  .btnsuc-snackbar button{
+    color: white;
+  }
+  /* snackBar end*/

@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  gatewayURL:"http://192.168.18.104:90/gateway"
+
+  GateWayURL:" http://192.168.18.104:90/gateway"
+
 };
 
 /*
