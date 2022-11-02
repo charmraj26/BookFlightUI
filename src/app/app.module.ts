@@ -5,6 +5,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginModule } from './login/login.module';
 import { RegisterModule } from './register/register.module';
+import { RegisterService } from './register/register.service';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -15,10 +18,11 @@ import { RegisterModule } from './register/register.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     LoginModule,
     RegisterModule
   ],
-  providers: [],
+  providers: [RegisterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

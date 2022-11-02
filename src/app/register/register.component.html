@@ -1,1 +1,99 @@
-<p>register works!</p>
+<div class="back">
+    <mat-toolbar class="top">
+        <div class="container-fluid mt-2">
+            <div class="row">
+                <div class="col-sm-9 ">
+                    <mat-icon class="flight-icon">flight</mat-icon>
+                    <span>FLIGHT BOOKING</span>
+                </div>
+                <div class="col-sm-3">
+                    <p class="customerCare">Customer Care : 8888888888 | Feel free to contant us.</p>
+                </div>
+            </div>
+        </div>
+    </mat-toolbar>
+    <div class="container mt-4 ">
+        <div class="row bck">
+            <div class="col-lg-6">
+        <h2 class="signUp">Sign Up</h2>
+        <form [formGroup]="RegisterForm" (ngSubmit)="registerSubmit()">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-4 mt-1">
+                        <label for="username">Username</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" formControlName="username" class="form-control" placeholder="Enter Username"
+                         [ngClass]="{'is-invalid': submitted && f.username.errors } "/>
+                        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                            <div *ngIf="f.username.errors.required" class="err"> *Username is required</div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+            <div class="form-group mt-3">
+                <div class="row">
+                    <div class="col-4 mt-1">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="password" formControlName="password" class="form-control" placeholder="Enter Password"
+                        [ngClass]="{'is-invalid': submitted && f.password.errors} "/>
+                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                            <div *ngIf="f.password.errors.required" class="err">*Password is required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                <div class="row">
+                    <div class="col-4 mt-1">
+                        <label for="confirm_password">Confirm Password</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="password" formControlName="confirm_password" class="form-control" placeholder="Enter Confirm Password"
+                        [ngClass]="{'is-invalid': submitted && f.confirm_password.errors}" />
+                        <div *ngIf="submitted && f.confirm_password.errors" class="invalid-feedback">
+                            <div *ngIf="f.confirm_password.errors.required" class="err"> *Confirm Password is required</div>
+                            <div *ngIf="f.confirm_password.errors.mustMatch" class="err"> *Passwords did not match</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                <div class="row">
+                    <div class="col-4 mt-1">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" formControlName="email" class="form-control" placeholder="Enter Email"
+                        [ngClass]="{'is-invalid': submitted && f.email.errors}" />
+                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                            <div *ngIf="f.email.errors.required" class="err"> *Email is required</div>
+                            <div *ngIf="f.email.errors.email" class="err"> *Email must be a valid email address</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group mt-3 mb-3">
+                <div class="row">
+                    <div class="col-7"></div>
+                    <div class="col-3">
+                        <button class="btn btn-success" type="submit">SIGN UP</button>
+                    </div>
+                    <div class="col-2">
+                        <button class="btn btn-dark" routerLink="/login">BACK</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </form>
+    </div> 
+    </div>
+    </div>
+
+
+    </div>
