@@ -8,7 +8,7 @@ import { registerdata } from './register.model';
   providedIn: 'root'
 })
 export class RegisterService {
-  registerUrl:string = environment.gatewayURL;
+  registerUrl:string = environment.GateWayURL;
   constructor(private http:HttpClient) { }
 
   public registerSubmit(user:registerdata):Observable<any>{
