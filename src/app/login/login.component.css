@@ -48,10 +48,7 @@ mat-toolbar{
     display: flex;
     position: fixed;
     z-index:1;
-  }
-.mtsize{
-    margin-top: 80px!important;
-  }
+}
 .labeltext{
     font-size: 17px;
 }

@@ -14,15 +14,15 @@ export class LoginComponent implements OnInit {
   public blueBg: string = "assets/images/bluebg.jpg"
   public flightimg: string = "assets/images/flightimg.jpg"
   public loginForm: FormGroup | any;
-  public submitted = false;
   public loginUserSubscription: any;
-  public loginData: any;
   public hideEye: boolean = false;
+  public submitted = false;
+  public loginData: any;
 
   constructor(private formBuilder: FormBuilder,
     private loginService: LoginService,
-    private router: Router,
-    private snackBar: SnackbarService) {
+    private snackBar: SnackbarService,
+    private router: Router) {
   }
 
   ngOnInit(): void {
@@ -40,25 +40,22 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  loginSubmit() {
+  public loginSubmit() {
     this.submitted = true;
     if (!this.loginForm.valid) {
       this.snackBar.redSnackBar(`Required Mandatory Fields`, 'X');
-
     } else {
       let loginData = new loginUserData();
       loginData.username = this.f.username.value;
       loginData.password = btoa(this.f.password.value);
 
-      this.loginUserSubscription = this.loginService.loginSubmit(loginData).subscribe((data: any) => {
-        if (data.token) {
+      this.loginUserSubscription = this.loginService.loginSubmit(loginData).subscribe(data=>{
+        if(data.token){
+          this.loginService.setLogin(data);
           this.router.navigate(['/dashboard']);
-        } else{
-          this.snackBar.redSnackBar(`Incorrect Username or Password`, 'X');
         }
       },(error)=>{
-        console.log(error)
-
+        // this.snackBar.redSnackBar(error, 'X')
       });
     }
   }
