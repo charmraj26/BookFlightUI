@@ -13,8 +13,8 @@
     background-image: url("../../assets/images/bluebg.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
-    height: 200vh;
     background-size:cover;
+    min-height: 100%;
 }
 .bgshade{
     background-color:rgb(247, 247, 247,0.1);
@@ -23,7 +23,6 @@
     padding: 10px;
     border-radius: 12px; 
     padding: 0px;
-   
 }
 .cardsize{
     height: 100%;
@@ -51,22 +50,31 @@ mat-toolbar{
     z-index:1;
   }
 .mtsize{
-    margin-top: 100px!important;
+    margin-top: 80px!important;
   }
+.labeltext{
+    font-size: 17px;
+}
 .flighttexthead{
     color: black;
     text-align: center;
 }
 .flighttext{
     color: black;
+    font-size: medium;
 }
 .errortext{
     color: white;
     font-size: medium;
 }
+.journfont{
+    font-size: 17px;
+    font-weight:500;
+}
 .orderlist{
     line-height: 40px;
-    font-size: bold;
+    font-size:17px;
+    font-weight:500;
 }
 .card-body{
     padding-top: 1px;
@@ -77,4 +85,18 @@ ol {
     margin-top: 0;
     margin-bottom: 1rem;
     padding: 15px;
+}
+input.checkinput{
+    width: 20px;
+    height:20px;
+    vertical-align: text-bottom;
+    margin-right: 5px;
+}
+.checkboxlable{
+    background-color: red;
+    padding:7px;
+    border-radius: 5px;
+}
+.checkboxoverall{
+    float: right !important;
 }
