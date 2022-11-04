@@ -25,4 +25,13 @@ export class SnackbarService {
       panelClass: ['success-snackbar', 'btnsuc-snackbar']
     })
   }
+
+  public warningSnackBar(displayMessage:string, buttonText:string){
+    this.snackBar.open(displayMessage,buttonText,{
+      duration:1000,
+      horizontalPosition:'right',
+      verticalPosition:'top',
+      panelClass:['warning-snackbar', 'btnwarn-snackbar']
+    })
+  }
 }

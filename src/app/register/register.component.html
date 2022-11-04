@@ -15,85 +15,131 @@
     <div class="container mt-4 ">
         <div class="row bck">
             <div class="col-lg-6">
-        <h2 class="signUp">Sign Up</h2>
-        <form [formGroup]="RegisterForm" (ngSubmit)="registerSubmit()">
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-4 mt-1">
-                        <label for="username">Username</label>
-                    </div>
-                    <div class="col-8">
-                        <input type="text" formControlName="username" class="form-control" placeholder="Enter Username"
-                         [ngClass]="{'is-invalid': submitted && f.username.errors } "/>
-                        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-                            <div *ngIf="f.username.errors.required" class="err"> *Username is required</div>
-                        </div>
-                    </div>
-                    
-                </div>
+                <h2 class="signUp">Sign Up</h2>
+                <form [formGroup]="RegisterForm" (ngSubmit)="registerSubmit()">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-4 mt-1">
+                                <label for="username">Username</label>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" formControlName="username" class="form-control"
+                                    placeholder="Enter Username"
+                                    [ngClass]="{'is-invalid': submitted && f.username.errors } " />
+                                <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                                    <div *ngIf="f.username.errors.required" class="err"> *Username is required</div>
+                                </div>
+                            </div>
 
-            </div>
-            <div class="form-group mt-3">
-                <div class="row">
-                    <div class="col-4 mt-1">
-                        <label for="password">Password</label>
-                    </div>
-                    <div class="col-8">
-                        <input type="password" formControlName="password" class="form-control" placeholder="Enter Password"
-                        [ngClass]="{'is-invalid': submitted && f.password.errors} "/>
-                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                            <div *ngIf="f.password.errors.required" class="err">*Password is required</div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group mt-3">
-                <div class="row">
-                    <div class="col-4 mt-1">
-                        <label for="confirm_password">Confirm Password</label>
-                    </div>
-                    <div class="col-8">
-                        <input type="password" formControlName="confirm_password" class="form-control" placeholder="Enter Confirm Password"
-                        [ngClass]="{'is-invalid': submitted && f.confirm_password.errors}" />
-                        <div *ngIf="submitted && f.confirm_password.errors" class="invalid-feedback">
-                            <div *ngIf="f.confirm_password.errors.required" class="err"> *Confirm Password is required</div>
-                            <div *ngIf="f.confirm_password.errors.mustMatch" class="err"> *Passwords did not match</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group mt-3">
-                <div class="row">
-                    <div class="col-4 mt-1">
-                        <label for="email">Email</label>
-                    </div>
-                    <div class="col-8">
-                        <input type="text" formControlName="email" class="form-control" placeholder="Enter Email"
-                        [ngClass]="{'is-invalid': submitted && f.email.errors}" />
-                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                            <div *ngIf="f.email.errors.required" class="err"> *Email is required</div>
-                            <div *ngIf="f.email.errors.email" class="err"> *Email must be a valid email address</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group mt-3 mb-3">
-                <div class="row">
-                    <div class="col-7"></div>
-                    <div class="col-3">
-                        <button class="btn btn-success" type="submit">SIGN UP</button>
-                    </div>
-                    <div class="col-2">
-                        <button class="btn btn-dark" routerLink="/login">BACK</button>
-                    </div>
-                </div>
 
-            </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <div class="row">
+                            <div class="col-4 mt-1">
+                                <label for="password">Password</label>
+                            </div>
+                            <div class="col-8">
+                                <div class="input-group">
+                                    <input type="password" formControlName="password" class="form-control"
+                                        placeholder="Enter Password"
+                                        [ngClass]="{'is-invalid': submitted && f.password.errors} "
+                                        [type]="fieldTextType ? 'text' : 'password'" />
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <i class="fa"
+                                                [ngClass]="{'fa-eye-slash': !fieldTextType,'fa-eye': fieldTextType}"
+                                                (click)="toggleFieldTextType()"></i>
+                                        </span>
+                                    </div>
+                                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                        <div *ngIf="f.password.errors.required" class="err">*Password is required</div>
+                                        <div *ngIf="f.password.errors.minlength" class="err">*Password must be at least
+                                            6
+                                            characters</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <div class="row">
+                            <div class="col-4 mt-1">
+                                <label for="confirm_password">Confirm Password</label>
+                            </div>
+                            <div class="col-8">
+                                <div class="input-group">
+                                    <input type="password" formControlName="confirm_password" class="form-control"
+                                        placeholder="Enter Confirm Password"
+                                        [ngClass]="{'is-invalid': submitted && f.confirm_password.errors}"
+                                        [type]="fieldTextTypes ? 'text':'password' " />
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <i class="fa"
+                                                [ngClass]="{'fa-eye-slash':!fieldTextTypes,'fa-eye':fieldTextTypes}"
+                                                (click)="toggleFieldTextTypes()"></i>
+                                        </span>
+                                    </div>
+                                    <div *ngIf="submitted && f.confirm_password.errors" class="invalid-feedback">
+                                        <div *ngIf="f.confirm_password.errors.required" class="err"> *Confirm Password
+                                            is
+                                            required</div>
+                                        <div *ngIf="f.confirm_password.errors.mustMatch" class="err"> *Passwords did not
+                                            match</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <div class="row">
+                            <div class="col-4 mt-1">
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" formControlName="email" class="form-control"
+                                    placeholder="Enter Email" [ngClass]="{'is-invalid': submitted && f.email.errors}" />
+                                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                    <div *ngIf="f.email.errors.required" class="err"> *Email is required</div>
+                                    <div *ngIf="f.email.errors.email" class="err"> *Email must be a valid email address
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3 mb-3">
+                        <div class="row">
+                            
+                            <div class="col-4"></div>
+                            <div class="col-3">
+                                <input class="adInp" type="checkbox" id="admin">
+                                <label class="adLab" for="admin">ADMIN</label>
+                            </div>
+                            <div class="col-3">
+                                <button class="btn btn-success" type="submit">SIGN UP</button>
+                            </div>
+                            <div class="col-2">
+                                <button class="btn btn-dark" routerLink="/login">BACK</button>
+                            </div>
+                        </div>
 
-        </form>
-    </div> 
+                    </div>
+
+                </form>
+            </div>
+        </div>
     </div>
-    </div>
 
 
+</div>
+
+
+
+<!-- <div class="input-group">
+    <input type="password" class="form-control" formControlName="password" />
+    <div class="input-group-append">
+        <span class="input-group-text">
+            <i class="fa fa-eye-slash"></i>
+        </span>
     </div>
+</div> -->

@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
   }else{
     let loginData = new loginUserData();
     loginData.username = this.f.username.value;
-    loginData.password = this.f.password.value;
+    loginData.password = btoa(this.f.password.value);
 
     this.loginUserSubscription = this.loginService.loginSubmit(loginData).subscribe((data:any)=>{
     if(data.status == "404"){

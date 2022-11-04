@@ -18,8 +18,8 @@
     background-image: url("../../assets/images/bluebg.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
-    height: 100vh;
     background-size: cover;
+    min-height: 100%;
 }
 .signUp{
     color:white;
@@ -39,8 +39,18 @@ label{
     border-radius: 10px;
     
 }
-
-
+.adInp{
+    width:20px;
+    height:20px; 
+    vertical-align:middle;
+    margin-right: 5px; 
+    color:red
+}
+.adLab{
+    background-color: red;
+    padding: 8px;
+    border-radius: 5px;
+}
 @media only screen and (max-width: 576px)
  {
     .customerCare{

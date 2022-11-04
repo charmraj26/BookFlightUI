@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SnackbarService } from '../snackbar.service';
 import { registerdata } from './register.model';
 import { RegisterService } from './register.service';
 
@@ -15,9 +16,13 @@ export class RegisterComponent implements OnInit {
   submitted = false;
   registerSubscription: any;
   registerData:any;
+  fieldTextType: boolean= false;
+  fieldTextTypes:boolean= false;
+
   constructor(private formBuilder: FormBuilder,
               private registerService:RegisterService,
-              private router:Router) { }
+              private router:Router,
+              private snackBar:SnackbarService) { }
 
   mustMatch(password: any, confirm_passWord: any) {
     return (formGroup: FormGroup) => {
@@ -28,6 +33,7 @@ export class RegisterComponent implements OnInit {
       }
       if (passwordcontrol.value !== confirm_passwordcontrol.value) {
         confirm_passwordcontrol.setErrors({ mustMatch: true });
+        this.snackBar.warningSnackBar('Password & Confirm Password should be same', 'X')
       } else {
         confirm_passwordcontrol.setErrors(null);
       }
@@ -40,8 +46,8 @@ export class RegisterComponent implements OnInit {
   private registerFormGroupMethod() {
     this.RegisterForm = this.formBuilder.group({
       username: ['', Validators.required],
-      password: ['', Validators.required],
-      confirm_password: ['', Validators.required],
+      password: ['', [Validators.required,Validators.minLength(6)]],
+      confirm_password: ['', [Validators.required,Validators.minLength(6)]],
       email: ['', [Validators.required, Validators.email]]
     }, {
       validator: this.mustMatch('password', 'confirm_password')
@@ -54,21 +60,32 @@ export class RegisterComponent implements OnInit {
   public registerSubmit() {
     this.submitted = true;
     if(!this.RegisterForm.valid){
-      alert('provide all required fields')
+      this.snackBar.redSnackBar('Required Mandatory Fields', 'X')
     }
     else{
       let registerData = new registerdata();
       registerData.username = this.f.username.value;
-      registerData.password = this.f.password.value;
-      registerData.confirm_password = this.f.confirm_password.value;
+      registerData.password = btoa(this.f.password.value);
+      registerData.confirm_password = btoa(this.f.confirm_password.value);
       registerData.email = this.f.email.value;
 
       this.registerSubscription = this.registerService.registerSubmit(registerData).subscribe((data:any)=>{
-   
+        if(data.user_id){
           this.router.navigate(['/login']);
-        
+          this.snackBar.successSnackBar('Registered ssuccessfully', 'X')
+        } else{
+          this.snackBar.redSnackBar('User already exist', 'X')
+        }        
+      },(error)=>{
+        console.log(error);
       })  
     }
+  }
+  toggleFieldTextType() {
+    this.fieldTextType = !this.fieldTextType;
+  }
+  toggleFieldTextTypes(){
+    this.fieldTextTypes = !this.fieldTextTypes;
   }
   ngOnDestroy(): void {
     this.registerSubscription?.unsubscribe();
