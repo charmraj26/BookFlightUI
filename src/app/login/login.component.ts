@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
     this.submitted = true;
     if (!this.loginForm.valid) {
       this.snackBar.redSnackBar(`Required Mandatory Fields`, 'X');
+
     } else {
       let loginData = new loginUserData();
       loginData.username = this.f.username.value;
