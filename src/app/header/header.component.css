@@ -1,0 +1,37 @@
+.toptool{
+    background-image: linear-gradient(to right, rgb(26, 51, 98), rgba(21, 119, 184, 0.778));
+    color: white;
+}
+.fsize{
+    font-size: medium;
+    float: right;
+}
+.mat-toolbar-single-row {
+    padding: 0 !important;
+}
+ul{
+    list-style-type: none;
+}
+li{
+    display: inline; 
+    float: left;
+}
+li a {
+    color: white;
+    text-align: center;
+    padding: 0px 6px;
+    text-decoration: none;
+    font-size: 17px;
+    opacity: 0.5;
+  }
+.logbtn{
+    background-image: linear-gradient(to right, rgb(70, 144, 184), rgba(255, 255, 255, 0.637));
+    float: right;
+    color: white;
+    font-weight: 520;
+  }
+.userflight{
+    margin-right: 15px;
+    vertical-align:text-bottom;
+    opacity: 0.5;
+  }  

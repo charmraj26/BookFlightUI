@@ -11,11 +11,13 @@ import { LoginService } from './login/login.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatIconModule} from '@angular/material/icon';
-
+import { HeaderComponent } from './header/header.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
     DashboardComponent,
   ],
   imports: [
@@ -27,7 +29,9 @@ import {MatIconModule} from '@angular/material/icon';
     RegisterModule,
     HttpClientModule,
     MatSnackBarModule,
-    MatIconModule
+    MatIconModule,
+    MatToolbarModule
+    
   ],
   providers: [RegisterService,LoginService],
   bootstrap: [AppComponent]
