@@ -11,53 +11,61 @@ import { LoginService } from './login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  public blueBg: string= "assets/images/bluebg.jpg"
+  public blueBg: string = "assets/images/bluebg.jpg"
   public flightimg: string = "assets/images/flightimg.jpg"
   public loginForm: FormGroup | any;
-  public submitted=false;
+  public submitted = false;
   public loginUserSubscription: any;
-  public responseData: any;
   public loginData: any;
+  public hideEye: boolean = false;
 
-  constructor( private formBuilder: FormBuilder, 
-    private loginService: LoginService, 
+  constructor(private formBuilder: FormBuilder,
+    private loginService: LoginService,
     private router: Router,
-    private snackBar: SnackbarService) { 
-    }
-
-  ngOnInit(): void {
-   this.loginFormGroupMethod();
+    private snackBar: SnackbarService) {
   }
 
-  private loginFormGroupMethod(){
+  ngOnInit(): void {
+    this.loginFormGroupMethod();
+  }
+
+  hideEyeText() {
+    this.hideEye = !this.hideEye;
+  }
+
+  private loginFormGroupMethod() {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
-  });
-
+    });
   }
 
-  loginSubmit(){
+  loginSubmit() {
     this.submitted = true;
     if (!this.loginForm.valid) {
       this.snackBar.redSnackBar(`Required Mandatory Fields`, 'X');
-  }else{
-    let loginData = new loginUserData();
-    loginData.username = this.f.username.value;
-    loginData.password = btoa(this.f.password.value);
 
-    this.loginUserSubscription = this.loginService.loginSubmit(loginData).subscribe((data:any)=>{
-    if(data.status == "404"){
-      this.snackBar.redSnackBar(`User doest not exixt`, 'X');
-    }else{
-      this.router.navigate(['/dashboard']);
+    } else {
+      let loginData = new loginUserData();
+      loginData.username = this.f.username.value;
+      loginData.password = btoa(this.f.password.value);
+
+      this.loginUserSubscription = this.loginService.loginSubmit(loginData).subscribe((data: any) => {
+        if (data.token) {
+          this.router.navigate(['/dashboard']);
+        } else{
+          this.snackBar.redSnackBar(`Incorrect Username or Password`, 'X');
+        }
+      },(error)=>{
+        console.log(error)
+
+      });
     }
-      
-
-    });
   }
-}
-  get f() { return this.loginForm.controls; }
+
+  get f() {
+    return this.loginForm.controls;
+  }
 
   ngOnDestroy(): void {
     this.loginUserSubscription?.unsubscribe();
