@@ -60,7 +60,7 @@ export class RegisterComponent implements OnInit {
   public registerSubmit() {
     this.submitted = true;
     if(!this.RegisterForm.valid){
-      this.snackBar.redSnackBar('Required Mandatory Fields', 'X')
+      this.snackBar.redSnackBar('Required Mandatory Fields', 'X')   
     }
     else{
       let registerData = new registerdata();
@@ -72,21 +72,22 @@ export class RegisterComponent implements OnInit {
       this.registerSubscription = this.registerService.registerSubmit(registerData).subscribe((data:any)=>{
         if(data.user_id){
           this.router.navigate(['/login']);
-          this.snackBar.successSnackBar('Registered ssuccessfully', 'X')
-        } else{
-          this.snackBar.redSnackBar('User already exist', 'X')
-        }        
+          this.snackBar.successSnackBar('Registered successfully', 'X')
+        }       
       },(error)=>{
-        console.log(error);
+         this.snackBar.redSnackBar( error, 'X')
       })  
     }
   }
+
   toggleFieldTextType() {
     this.fieldTextType = !this.fieldTextType;
   }
+
   toggleFieldTextTypes(){
     this.fieldTextTypes = !this.fieldTextTypes;
   }
+
   ngOnDestroy(): void {
     this.registerSubscription?.unsubscribe();
   }
