@@ -1,0 +1,54 @@
+<div>
+    <mat-toolbar class="toptool" *ngIf="!isOpen">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-8 ">
+                    <mat-icon class="flight-main-icon">flight</mat-icon>
+                    <span>FLIGHT BOOKING</span>
+                </div>
+                <div class="col-sm-4">
+                    <p class="fsize">Customer Care : 8888888888 | Feel free to contant us.</p>
+                </div>
+            </div>
+        </div>
+    </mat-toolbar>
+</div>
+<div>
+    <mat-toolbar *ngIf="isOpen" class="toptool">
+        <div class="container-fluid">
+            <div class="row ">
+                <div class="col-sm-8 mt-1" >
+                    <ul style="padding: 0px;">
+                        <li><mat-icon class="userflight">flight</mat-icon></li> 
+                        <li><a>Book Flight</a></li> 
+                        <li><a>Manage Booking</a></li> 
+                        <li><a>Booking History</a></li> 
+                     </ul> 
+                </div>
+                <div class="col-sm-4">
+                   <button class=" btn btn-info logbtn">Logout</button>
+                </div>
+            </div>
+        </div>
+    </mat-toolbar>
+</div>
+<!-- <div>
+    <mat-toolbar class="toptool mt-3">
+        <div class="container-fluid">
+            <div class="row ">
+                <div class="col-sm-8 mt-1" >
+                    <ul style="padding: 0px;">
+                        <li><mat-icon class="userflight">flight</mat-icon></li> 
+                        <li><a>Manage Schedules</a></li> 
+                        <li><a>Manage Discounts</a></li> 
+                        <li><a>Manage Airlines</a></li> 
+                        <li><a>Reports</a></li> 
+                     </ul> 
+                </div>
+                <div class="col-sm-4">
+                   <button  class=" btn btn-info logbtn">Logout</button>
+                </div>
+            </div>
+        </div>
+    </mat-toolbar>
+</div> -->

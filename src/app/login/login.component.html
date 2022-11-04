@@ -1,22 +1,7 @@
 <div class="bgblue">
-    <div>
-        <mat-toolbar class="toptool">
-            <div class="container-fluid mt-3">
-                <div class="row">
-                    <div class="col-sm-8 ">
-                        <mat-icon class="flight-main-icon">flight</mat-icon>
-                        <span>FLIGHT BOOKING</span>
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="fsize">Customer Care : 8888888888 | Feel free to contant us.</p>
-                    </div>
-                </div>
-            </div>
-        </mat-toolbar>
-    </div>
     <div class="row bgshade ms-2">
-        <div class="col-sm-6 mtsize">
-            <form [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
+        <div class="col-sm-6 mt-3">
+            <form [formGroup]="loginForm">
                 <div class="form-group">
                     <div class="row ">
                         <div class="col-md-2 pb-2">
@@ -57,16 +42,16 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-2"></div>
-                        <div class="col-md-5 mt-3 checkboxoverall" >
+                        <div class="col-md-5 mt-3 checkboxoverall">
                             <div class="row">
                                 <div class="col-sm-12">
-                            <input class="checkinput" type="checkbox" id="admin">
-                            <label class="checkboxlable" for="admin">ADMIN</label>
-                        </div>
-                        </div>
+                                    <input class="checkinput" type="checkbox" id="admin">
+                                    <label class="checkboxlable" for="admin">ADMIN</label>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-md-2 mt-3">
-                            <button class="btn btn-success" >LOGIN</button>
+                            <button class="btn btn-success" (click)="loginSubmit();">LOGIN</button>
                         </div>
                         <div class="col-md-3 mt-3">
                             <button type="button" class="btn btn-primary" routerLink="/register">SIGN UP</button>
@@ -83,7 +68,7 @@
                 <li>Enjoy the journey.</li>
             </ol>
         </div>
-        <div class="col-md-6 mtsize">
+        <div class="col-md-6 mt-3">
             <div class="card cardsize">
                 <div class="card-body">
                     <img class="flightsize" [src]="flightimg">
