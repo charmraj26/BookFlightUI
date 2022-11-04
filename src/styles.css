@@ -23,6 +23,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .btnsuc-snackbar button{
     color: white;
   }
+
+  .warning-snackbar{
+    background-color: orange;
+    color:white;
+  }
+  .btnwarn-snackbar button{
+    color:white;
+  }
+
   /* snackBar end*/
 .fa{
     height: 24px;
@@ -41,3 +50,4 @@ input{
   border-style: hidden !important;
   background-color: #eee ;
 }
+
