@@ -20,7 +20,7 @@ export class LoginService {
     );
   }
 
-  adminSubmit(adminData:loginUserData): Observable<any>{
+  adminSubmit(adminData:loginUserData):Observable<any>{
     return this.http.post(this.loginUrl + '/flight/Admin/login', adminData)
   }
 
