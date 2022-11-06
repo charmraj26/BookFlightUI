@@ -5,6 +5,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100%;
+    padding-top: 20px;
 }
 .signUp{
     color:white;
@@ -22,6 +23,7 @@ label{
 .bck{
     background-image: linear-gradient(to right, rgba(246, 246, 246, 0.034), rgba(21, 119, 184, 0.778));
     border-radius: 10px;
+    margin-top: 70px;
     
 }
 .adInp{
