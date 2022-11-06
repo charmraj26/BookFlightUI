@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit {
   public RegisterForm: FormGroup | any;
   submitted = false;
   registerSubscription: any;
+  adminSubscription:any
   registerData:any;
   fieldTextType: boolean= false;
   fieldTextTypes:boolean= false;
@@ -45,6 +46,7 @@ export class RegisterComponent implements OnInit {
   }
   private registerFormGroupMethod() {
     this.RegisterForm = this.formBuilder.group({
+      admin:[''],
       username: ['', Validators.required],
       password: ['', [Validators.required,Validators.minLength(6)]],
       confirm_password: ['', [Validators.required,Validators.minLength(6)]],
@@ -56,7 +58,13 @@ export class RegisterComponent implements OnInit {
   get f() {
     return this.RegisterForm.controls;
   }
-
+  Ch(e:any){
+    if(e.checked){
+      this.adminSubscription = this.registerService.adminSubmit(this.registerData).subscribe((data:any)=>{
+        this.router.navigate(['/login']);  
+      })
+    }
+  }
   public registerSubmit() {
     this.submitted = true;
     if(!this.RegisterForm.valid){
@@ -68,7 +76,7 @@ export class RegisterComponent implements OnInit {
       registerData.password = btoa(this.f.password.value);
       registerData.confirm_password = btoa(this.f.confirm_password.value);
       registerData.email = this.f.email.value;
-
+      
       this.registerSubscription = this.registerService.registerSubmit(registerData).subscribe((data:any)=>{
         if(data.user_id){
           this.router.navigate(['/login']);
@@ -76,7 +84,7 @@ export class RegisterComponent implements OnInit {
         }       
       },(error)=>{
          this.snackBar.redSnackBar( error, 'X')
-      })  
+        })  
     }
   }
 
