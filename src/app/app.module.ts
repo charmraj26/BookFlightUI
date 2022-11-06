@@ -15,7 +15,10 @@ import { HeaderComponent } from './header/header.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { ManageService } from './manageairlines/manage.service';
 import { ManageairlinesModule } from './manageairlines/manageairlines.module';
+import { ModelpopupComponent } from './modelpopup/modelpopup.component';
+import { MatDialogModule } from '@angular/material/dialog';
 import { AddnewairlinesModule } from './manageairlines/addnewairlines/addnewairlines.module';
+
 
 
 @NgModule({
@@ -23,6 +26,7 @@ import { AddnewairlinesModule } from './manageairlines/addnewairlines/addnewairl
     AppComponent,
     HeaderComponent,
     DashboardComponent,
+    ModelpopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,8 +40,10 @@ import { AddnewairlinesModule } from './manageairlines/addnewairlines/addnewairl
     MatIconModule,
     MatToolbarModule,
     ManageairlinesModule,
+    MatDialogModule
     AddnewairlinesModule,
     
+
     
   ],
   providers: [RegisterService,LoginService,ManageService],

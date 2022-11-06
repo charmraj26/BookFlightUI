@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ModelpopupComponent } from '../modelpopup/modelpopup.component';
+import { ManageService } from './manage.service';
 
 @Component({
   selector: 'app-manageairlines',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManageairlinesComponent implements OnInit {
 
-  constructor() { }
+  manageAirlines:any;
+
+  constructor(private matDialog:MatDialog,
+    private manageService:ManageService) { }
 
   ngOnInit(): void {
+    this.getAllManageAirline();
+  }
+
+  public getAllManageAirline(){
+    this.manageService.getManageAirline().subscribe(data=>{
+      
+    })
+  }
+
+  viewDetails(){
+    this.matDialog.open(ModelpopupComponent);
   }
 
 }
