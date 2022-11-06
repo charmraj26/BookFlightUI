@@ -1,0 +1,18 @@
+.icon{
+    position: relative;
+    margin-right: 5px;
+    vertical-align:bottom;
+}
+.btncolor{
+    float: right ;
+    margin-right: 10px;
+    margin-top: 80px;
+}
+
+.manageBg{
+    background-image: url("../../assets/images/managefltimg1.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size:cover;
+    min-height: 100%;
+}

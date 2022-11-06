@@ -13,6 +13,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatIconModule} from '@angular/material/icon';
 import { HeaderComponent } from './header/header.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { ManageService } from './manageairlines/manage.service';
+import { ManageairlinesModule } from './manageairlines/manageairlines.module';
 
 @NgModule({
   declarations: [
@@ -30,10 +32,11 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     HttpClientModule,
     MatSnackBarModule,
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    ManageairlinesModule
     
   ],
-  providers: [RegisterService,LoginService],
+  providers: [RegisterService,LoginService,ManageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

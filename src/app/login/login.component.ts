@@ -1,3 +1,4 @@
+import { Conditional } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -16,6 +17,7 @@ export class LoginComponent implements OnInit {
   public loginForm: FormGroup | any;
   public loginUserSubscription: any;
   public hideEye: boolean = false;
+  public adminSubscription: any;
   public submitted = false;
   public loginData: any;
 
@@ -35,6 +37,7 @@ export class LoginComponent implements OnInit {
 
   private loginFormGroupMethod() {
     this.loginForm = this.formBuilder.group({
+      adminCheckbox: [''],
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
@@ -49,12 +52,20 @@ export class LoginComponent implements OnInit {
       loginData.username = this.f.username.value;
       loginData.password = btoa(this.f.password.value);
 
-      this.loginUserSubscription = this.loginService.loginSubmit(loginData).subscribe(data=>{
-        if(data.token){
-          this.loginService.setLogin(data);
+      // this.loginForm.get('adminCheckbox').valueChanges.subscribe((result: any) => {
+      //   if (result) {
+      //     this.adminSubscription = this.loginService.adminSubmit(new loginUserData).subscribe(res => {
+      //       this.router.navigate(['/dashboard']);
+      //     })
+      //   }
+      // })
+
+      this.loginUserSubscription = this.loginService.loginSubmit(loginData).subscribe(data => {
+        if (data.token) {
+          this.loginService.setLogin(data); //headerCondition
           this.router.navigate(['/dashboard']);
         }
-      },(error)=>{
+      }, (error) => {
         // this.snackBar.redSnackBar(error, 'X')
       });
     }
