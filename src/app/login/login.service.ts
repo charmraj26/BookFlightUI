@@ -8,7 +8,9 @@ import { loginUserData } from './login.model';
   providedIn: 'root'
 })
 export class LoginService {
+
   public loginUrl: string = environment.GateWayURL;
+  
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
