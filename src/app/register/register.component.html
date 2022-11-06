@@ -99,7 +99,7 @@
                             
                             <div class="col-4"></div>
                             <div class="col-3">
-                                <input class="adInp" type="checkbox" id="admin">
+                                <input class="adInp" type="checkbox" id="admin" formControlName="admin" (change)="Ch($event.target)">
                                 <label class="adLab" for="admin">ADMIN</label>
                             </div>
                             <div class="col-3">
