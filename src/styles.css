@@ -33,21 +33,5 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   }
 
   /* snackBar end*/
-.fa{
-    height: 24px;
-    padding-top: 5px;
-    background-color: white;
-}
-.input-group-text{
-  background-color: white;
-  border-top-left-radius: 0px !important;
-  border-bottom-left-radius: 0px !important;
-}
-input:focus{
-  box-shadow: 0 0 0 !important ;
-}
-input{
-  border-style: hidden !important;
-  background-color: #eee ;
-}
+
 

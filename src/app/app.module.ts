@@ -15,6 +15,8 @@ import { HeaderComponent } from './header/header.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { ManageService } from './manageairlines/manage.service';
 import { ManageairlinesModule } from './manageairlines/manageairlines.module';
+import { AddnewairlinesModule } from './manageairlines/addnewairlines/addnewairlines.module';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { ManageairlinesModule } from './manageairlines/manageairlines.module';
     MatSnackBarModule,
     MatIconModule,
     MatToolbarModule,
-    ManageairlinesModule
+    ManageairlinesModule,
+    AddnewairlinesModule,
+    
     
   ],
   providers: [RegisterService,LoginService,ManageService],
