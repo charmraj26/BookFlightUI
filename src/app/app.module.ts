@@ -17,6 +17,9 @@ import { ManageService } from './manageairlines/manage.service';
 import { ManageairlinesModule } from './manageairlines/manageairlines.module';
 import { ModelpopupComponent } from './modelpopup/modelpopup.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AddnewairlinesModule } from './manageairlines/addnewairlines/addnewairlines.module';
+
+
 
 @NgModule({
   declarations: [
@@ -38,6 +41,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatToolbarModule,
     ManageairlinesModule,
     MatDialogModule
+    AddnewairlinesModule,
+    
+
     
   ],
   providers: [RegisterService,LoginService,ManageService],

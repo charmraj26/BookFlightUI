@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SnackbarService } from '../snackbar.service';
@@ -19,6 +19,7 @@ export class RegisterComponent implements OnInit {
   registerData:any;
   fieldTextType: boolean= false;
   fieldTextTypes:boolean= false;
+  isCheckBox: boolean = false;
 
   constructor(private formBuilder: FormBuilder,
               private registerService:RegisterService,
@@ -57,34 +58,34 @@ export class RegisterComponent implements OnInit {
   }
   get f() {
     return this.RegisterForm.controls;
-  }
-  Ch(e:any){
-    if(e.checked){
-      this.adminSubscription = this.registerService.adminSubmit(this.registerData).subscribe((data:any)=>{
-        this.router.navigate(['/login']);  
-      })
-    }
-  }
+   }
+  
   public registerSubmit() {
     this.submitted = true;
     if(!this.RegisterForm.valid){
       this.snackBar.redSnackBar('Required Mandatory Fields', 'X')   
     }
-    else{
+    else if(this.RegisterForm.valid){ 
       let registerData = new registerdata();
       registerData.username = this.f.username.value;
       registerData.password = btoa(this.f.password.value);
       registerData.confirm_password = btoa(this.f.confirm_password.value);
       registerData.email = this.f.email.value;
       
-      this.registerSubscription = this.registerService.registerSubmit(registerData).subscribe((data:any)=>{
-        if(data.user_id){
-          this.router.navigate(['/login']);
-          this.snackBar.successSnackBar('Registered successfully', 'X')
-        }       
-      },(error)=>{
-         this.snackBar.redSnackBar( error, 'X')
-        })  
+      if(this.isCheckBox) { 
+        this.adminSubscription = this.registerService.adminSubmit(this.registerData).subscribe((data:any)=>{
+          this.router.navigate(['/login']);  
+        })
+      } else {
+        this.registerSubscription = this.registerService.registerSubmit(registerData).subscribe((data:any)=>{
+          if(data.user_id){
+            this.router.navigate(['/login']);
+            this.snackBar.successSnackBar('Registered successfully', 'X')
+          }       
+        },(error)=>{
+           this.snackBar.redSnackBar( error, 'X')
+          })  
+      }
     }
   }
 
