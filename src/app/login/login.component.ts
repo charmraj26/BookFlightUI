@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   public adminSubscription: any;
   public submitted = false;
   public loginData: any;
+  public isSelected: boolean = false;
 
   constructor(private formBuilder: FormBuilder,
     private loginService: LoginService,
@@ -47,27 +48,27 @@ export class LoginComponent implements OnInit {
     this.submitted = true;
     if (!this.loginForm.valid) {
       this.snackBar.redSnackBar(`Required Mandatory Fields`, 'X');
-    } else {
+
+    } else if (this.loginForm.valid){
       let loginData = new loginUserData();
       loginData.username = this.f.username.value;
       loginData.password = btoa(this.f.password.value);
 
-      // this.loginForm.get('adminCheckbox').valueChanges.subscribe((result: any) => {
-      //   if (result) {
-      //     this.adminSubscription = this.loginService.adminSubmit(new loginUserData).subscribe(res => {
-      //       this.router.navigate(['/dashboard']);
-      //     })
-      //   }
-      // })
-
-      this.loginUserSubscription = this.loginService.loginSubmit(loginData).subscribe(data => {
-        if (data.token) {
-          this.loginService.setLogin(data); //headerCondition
-          this.router.navigate(['/dashboard']);
-        }
-      }, (error) => {
-        // this.snackBar.redSnackBar(error, 'X')
-      });
+      if(this.isSelected){
+        this.adminSubscription = this.loginService.adminSubmit(new loginUserData).subscribe(res => {
+                this.router.navigate(['/dashboard']);
+              })
+      }else{
+        this.loginUserSubscription = this.loginService.loginSubmit(loginData).subscribe(data => {
+          if (data.token) {
+            this.loginService.setLogin(data); //headerCondition
+            this.router.navigate(['/dashboard']);
+          }
+        }, (error) => {
+          // this.snackBar.redSnackBar(error, 'X')
+        });
+      }
+      
     }
   }
 

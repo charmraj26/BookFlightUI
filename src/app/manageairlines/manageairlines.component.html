@@ -1,35 +1,37 @@
 <div class="container-fluid manageBg">
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-12 mtheight">
             <div>
-                <button class="btncolor btn btn-success" routerLink="/">
+                <button class="btncolor btn btn-success">
                     <mat-icon class="icon">add</mat-icon>New Airlines
                 </button>
             </div>
             <div>
-                <table class="table table-trappe ">
-                    <thead>
-                        <tr>
+                <table class="table table-trappe tableovearll">
+                    <thead >
+                        <tr class="tablehead">
                             <th>Logo</th>
                             <th>Airline</th>
                             <th>Contact Number</th>
                             <th>Contact Address</th>
+                            <th>View </th>
+                            <th>Block/Unblock</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                    <tbody >
+                        <tr class="tablebody">
+                            <td>Logo</td>
+                            <td>Airline</td>
+                            <td>Contact Number</td>
+                            <td>Contact Address</td>
                             <td>
-                                <button class="btn btn-danger">View
+                                <button class="btn btn-danger" (click)="viewDetails()">View
                                 </button>
                             </td>
                             <td>
                                 <button class="btn btn-dark">Block
                                 </button>
-                            </td>
+                            </td> 
                         </tr>
                     </tbody>
                 </table>

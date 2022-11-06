@@ -15,12 +15,15 @@ import { HeaderComponent } from './header/header.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { ManageService } from './manageairlines/manage.service';
 import { ManageairlinesModule } from './manageairlines/manageairlines.module';
+import { ModelpopupComponent } from './modelpopup/modelpopup.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     DashboardComponent,
+    ModelpopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import { ManageairlinesModule } from './manageairlines/manageairlines.module';
     MatSnackBarModule,
     MatIconModule,
     MatToolbarModule,
-    ManageairlinesModule
+    ManageairlinesModule,
+    MatDialogModule
     
   ],
   providers: [RegisterService,LoginService,ManageService],

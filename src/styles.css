@@ -50,4 +50,7 @@ input{
   border-style: hidden !important;
   background-color: #eee ;
 }
-
+.mat-dialog-container {
+  background-image: linear-gradient(to right, rgb(70, 144, 184), rgba(255, 255, 255, 0.637)) !important;
+  width: 500px !important;
+}
