@@ -16,10 +16,7 @@ export class RegisterService {
       catchError(this.handleError)
     );
   }
-  public adminSubmit(admin:registerdata):Observable<any>{
-    return this.http.post(this.registerUrl + '/flight/Admin',admin)
-  }
-
+  
   private handleError(error: HttpErrorResponse) {
     let errorMessage = ''
     if (error.status === 0) {
@@ -31,4 +28,8 @@ export class RegisterService {
     errorMessage= error.error
     return throwError(() => new Error(errorMessage));
   }
+  public adminSubmit(Admin: registerdata): Observable<any> {
+    return this.http.post(this.registerUrl + '/flight/Admin', Admin)
+  }
+
 }

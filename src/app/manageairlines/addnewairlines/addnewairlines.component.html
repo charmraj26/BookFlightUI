@@ -4,42 +4,42 @@
             <div class="col-12">
                 <form [formGroup]="airlineForm" (ngSubmit)="addAirlineSubmit()" >
                     <div class="form-group">
-                        <label for="AirlineName" class="form-label">Airline Name</label>
-                        <input type="text" class="form-control" name="AirlineName" placeholder="Airline Name" formControlName="AirlineName"
-                        [ngClass]="{'is-invalid':submitted && f.AirlineName.errors} "/>
-                        <div *ngIf=" submitted && f.AirlineName.errors" class="invalid-feedback">
-                            <div *ngIf="f.AirlineName.errors.required" >*Airline name is required</div>
-                            <div *ngIf="f.AirlineName.errors.pattern">
+                        <label for="airline_name" class="form-label">Airline Name</label>
+                        <input type="text" class="form-control" name="airline_name" placeholder="Airline Name" formControlName="airline_name"
+                        [ngClass]="{'is-invalid':submitted && f.airline_name.errors} "/>
+                        <div *ngIf=" submitted && f.airline_name.errors" class="invalid-feedback">
+                            <div *ngIf="f.airline_name.errors.required" >*Airline name is required</div>
+                            <div *ngIf="f.airline_name.errors.pattern">
                                 *Airline dhould be Alphanumeric,Min:3 chars,Max:10 chars
                             </div>
                         </div>
                     </div>
                     <div class="form-group mt-3">
-                        <label for="UploadLogo" class="form-label">Upload Logo</label>
-                        <input class="form-control" type="file" id="UploadLogo" formControlName="UploadLogo" 
-                        [ngClass]="{'is-invalid': submitted && f.UploadLogo.errors} " />
-                        <div *ngIf=" submitted && f.UploadLogo.errors" class="invalid-feedback">
-                            <div *ngIf="f.UploadLogo.errors.required" > *Upload logo is required</div>
+                        <label for="airline_logo" class="form-label">Upload Logo</label>
+                        <input class="form-control" type="file" id="airline_logo" formControlName="airline_logo" 
+                        [ngClass]="{'is-invalid': submitted && f.airline_logo.errors} " />
+                        <div *ngIf=" submitted && f.airline_logo.errors" class="invalid-feedback">
+                            <div *ngIf="f.airline_logo.errors.required" > *Upload logo is required</div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group mt-3">
-                                <label for="ContactNumber" class="form-label">Contact Number </label>
-                                <input type="tell" class="form-control" id="ContactNumber" formControlName="ContactNumber"
-                                [ngClass]="{'is-invalid': submitted && f.ContactNumber.errors} " />
-                                <div *ngIf=" submitted && f.ContactNumber.errors" class="invalid-feedback">
-                                    <div *ngIf="f.ContactNumber.errors.required" >*Contact number is required </div>
+                                <label for="contact_number" class="form-label">Contact Number </label>
+                                <input type="text" class="form-control" id="contact_number" formControlName="contact_number" (keypress)="numberOnly($event)"
+                                [ngClass]="{'is-invalid': submitted && f.contact_number.errors} " onlyNumber />
+                                <div *ngIf=" submitted && f.contact_number.errors" class="invalid-feedback">
+                                    <div *ngIf="f.contact_number.errors.required" >*Contact number is required </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group mt-3">
-                                <label for="ContactAddress" class="form-label" >Contact Address</label>
-                                <input type="text" class="form-control" id="ContactAddress" formControlName="ContactAddress"
-                                [ngClass]="{'is-invalid': submitted && f.ContactAddress.errors} " />
-                                <div *ngIf=" submitted && f.ContactAddress.errors" class="invalid-feedback">
-                                    <div *ngIf="f.ContactAddress.errors.required" >*Contact address is required</div>
+                                <label for="contact_address" class="form-label" >Contact Address</label>
+                                <input type="text" class="form-control" id="contact_address" formControlName="contact_address"
+                                [ngClass]="{'is-invalid': submitted && f.contact_address.errors} " />
+                                <div *ngIf=" submitted && f.contact_address.errors" class="invalid-feedback">
+                                    <div *ngIf="f.contact_address.errors.required" >*Contact address is required</div>
                                 </div>
                             </div>
                         </div>

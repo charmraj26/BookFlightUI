@@ -13,13 +13,13 @@ import { RegisterService } from './register.service';
 export class RegisterComponent implements OnInit {
 
   public RegisterForm: FormGroup | any;
-  submitted = false;
-  registerSubscription: any;
-  adminSubscription:any
-  registerData:any;
-  fieldTextType: boolean= false;
-  fieldTextTypes:boolean= false;
-  isCheckBox: boolean = false;
+  public submitted = false;
+  public registerSubscription: any;
+  public adminSubscription:any
+  public registerData:any;
+  public fieldTextType: boolean= false;
+  public fieldTextTypes:boolean= false;
+  public isCheckBox: boolean = false;
 
   constructor(private formBuilder: FormBuilder,
               private registerService:RegisterService,
@@ -73,8 +73,11 @@ export class RegisterComponent implements OnInit {
       registerData.email = this.f.email.value;
       
       if(this.isCheckBox) { 
-        this.adminSubscription = this.registerService.adminSubmit(this.registerData).subscribe((data:any)=>{
-          this.router.navigate(['/login']);  
+        this.adminSubscription = this.registerService.adminSubmit(registerData).subscribe((data:any)=> {
+          if(data.username){
+            this.router.navigate(['/login']);
+            this.snackBar.successSnackBar('Registered successfully', 'X')
+          }
         })
       } else {
         this.registerSubscription = this.registerService.registerSubmit(registerData).subscribe((data:any)=>{
@@ -99,5 +102,6 @@ export class RegisterComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.registerSubscription?.unsubscribe();
+    this.adminSubscription?.unsubscribe();
   }
 }
