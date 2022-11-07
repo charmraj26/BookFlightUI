@@ -19,7 +19,7 @@ export class ManageService {
   }
 
   public addAirlineSubmit(airline:AddnewairlinesModel):Observable<any>{
-    return this.http.post(this.addairlineUrl + '/flight/Admin',airline)
+    return this.http.post(this.addairlineUrl + '/flight/Airline',airline)
    }
 
 }

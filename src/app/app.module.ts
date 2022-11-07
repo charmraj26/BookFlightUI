@@ -40,7 +40,7 @@ import { AddnewairlinesModule } from './manageairlines/addnewairlines/addnewairl
     MatIconModule,
     MatToolbarModule,
     ManageairlinesModule,
-    MatDialogModule
+    MatDialogModule,
     AddnewairlinesModule,
     
 
