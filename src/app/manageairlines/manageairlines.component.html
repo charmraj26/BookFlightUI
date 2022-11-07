@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-sm-12 mtheight">
             <div>
-                <button class="btncolor btn btn-success">
+                <button class="btncolor btn btn-success" routerLink="/addnewairlines">
                     <mat-icon class="icon">add</mat-icon>New Airlines
                 </button>
             </div>
@@ -19,19 +19,21 @@
                         </tr>
                     </thead>
                     <tbody >
-                        <tr class="tablebody">
-                            <td>Logo</td>
-                            <td>Airline</td>
-                            <td>Contact Number</td>
-                            <td>Contact Address</td>
+                        <tr class="tablebody" *ngFor="let airLineList of manageAirlines" nowrap>
+                            <td>{{airLineList.airline_log}}</td>
+                            <td>{{airLineList.airline_name }}</td>
+                            <td>{{airLineList.contact_address}}</td>
+                            <td>{{airLineList.contact_number}}</td>
                             <td>
-                                <button class="btn btn-danger" (click)="viewDetails()">View
+                                <label class="switch">
+                                    <input type="checkbox" data-size="small">
+                                    <span class="slider round"></span>
+                                  </label>
+                            </td> 
+                            <td>
+                                <button class="btn btn-danger" (click)="viewDetails(manageAirlines)">View
                                 </button>
                             </td>
-                            <td>
-                                <button class="btn btn-dark">Block
-                                </button>
-                            </td> 
                         </tr>
                     </tbody>
                 </table>
