@@ -18,6 +18,7 @@ import { ManageairlinesModule } from './manageairlines/manageairlines.module';
 import { ModelpopupComponent } from './modelpopup/modelpopup.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AddnewairlinesModule } from './manageairlines/addnewairlines/addnewairlines.module';
+import { ModelpopupService } from './modelpopup/modelpopup.service';
 
 
 
@@ -40,13 +41,13 @@ import { AddnewairlinesModule } from './manageairlines/addnewairlines/addnewairl
     MatIconModule,
     MatToolbarModule,
     ManageairlinesModule,
-    MatDialogModule
+    MatDialogModule,
     AddnewairlinesModule,
     
 
     
   ],
-  providers: [RegisterService,LoginService,ManageService],
+  providers: [RegisterService,LoginService,ManageService,ModelpopupService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -11,6 +11,7 @@ export class ModelpopupService {
 
   public openConfirmDialog(msg: string) {
     return this.matdialog.open(ModelpopupComponent, {
+      disableClose: true,
       width: '350px',
       panelClass: 'confirm-dialog-container',
       

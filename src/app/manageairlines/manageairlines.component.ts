@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ModelpopupComponent } from '../modelpopup/modelpopup.component';
+import { ModelpopupService } from '../modelpopup/modelpopup.service';
 import { ManageService } from './manage.service';
 
 @Component({
@@ -10,10 +11,13 @@ import { ManageService } from './manage.service';
 })
 export class ManageairlinesComponent implements OnInit {
 
-  manageAirlines:any;
+ public manageAirlines:any;
+  manageAirlineSubscription: any;
+
 
   constructor(private matDialog:MatDialog,
-    private manageService:ManageService) { }
+    private manageService:ManageService,
+    private modelService:ModelpopupService) { }
 
   ngOnInit(): void {
     this.getAllManageAirline();
@@ -21,12 +25,14 @@ export class ManageairlinesComponent implements OnInit {
 
   public getAllManageAirline(){
     this.manageService.getManageAirline().subscribe(data=>{
-      
+      this.manageAirlines =data;
     })
   }
 
-  viewDetails(){
-    this.matDialog.open(ModelpopupComponent);
+  viewDetails(manageAirlines:any){
+    this.modelService.openConfirmDialog('' + manageAirlines).afterClosed().subscribe(res=>{
+  
+    })
+  
   }
-
 }

@@ -15,7 +15,7 @@ export class ManageService {
   constructor(private http:HttpClient) { }
 
   public getManageAirline(): Observable<any>{
-    return this.http.get(this.manageUrl + '/');
+    return this.http.get(this.manageUrl + '/flight/Airline');
   }
 
   public addAirlineSubmit(airline:AddnewairlinesModel):Observable<any>{

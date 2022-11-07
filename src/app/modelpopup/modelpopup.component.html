@@ -1,10 +1,7 @@
 <div>
     <div class="content-container">
         <!-- <mat-icon id="close-icon" class="material-symbols-outlined" (click)="closeDialog()">close</mat-icon> -->
-        <p class="content-span full-width">Logo</p>
-        <p class="content-span full-width">Airline</p>
-        <p class="content-span full-width">Contact Number</p>
-        <p class="content-span full-width">Contact Address</p>
+        <p class="content-span full-width">{{data.message}}</p>
     </div>
     <button class="btn btn-primary" id="yes-button" [mat-dialog-close]="true">OK</button>
 </div>
