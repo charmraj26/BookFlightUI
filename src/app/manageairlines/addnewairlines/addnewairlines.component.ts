@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { SnackbarService } from 'src/app/snackbar.service';
 import { ManageService } from '../manage.service';
 import { AddnewairlinesModel } from './addnewairlines.model';
+import { AddnewairlinesService } from './addnewairlines.service';
 
 @Component({
   selector: 'app-addnewairlines',
@@ -19,7 +20,7 @@ export class AddnewairlinesComponent implements OnInit {
   constructor(private formBuilder:FormBuilder,
               private router:Router,
               private snackBar:SnackbarService,
-              private addAirlineService:ManageService) { }
+              private addAirlineService:AddnewairlinesService) { }
 
   ngOnInit(): void {
     this.airlineFormGroupMethod();
@@ -49,11 +50,12 @@ export class AddnewairlinesComponent implements OnInit {
       addAirlineData.contact_address = this.f.contact_address.value;
 
       this.addAirlineSubscription = this.addAirlineService.addAirlineSubmit(addAirlineData).subscribe((data:any) =>{
-        if(data){
+        if(data.airline_name){
           this.router.navigate(['/manageairlines']);
           this.snackBar.successSnackBar('Registerd successfully','X')
-        }
-          
+        }      
+      },(error)=>{
+        this.snackBar.redSnackBar(error, 'X')
       })
     }
   }
