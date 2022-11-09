@@ -12,7 +12,7 @@ const routes: Routes = [
   { path:'register',component:RegisterComponent},
   { path:'dashboard', component:DashboardComponent},
   { path:'manageairlines', component:ManageairlinesComponent},
-  { path:'addnewairlines', component:AddnewairlinesComponent}
+  { path:'addnewairlines/:airline_id', component:AddnewairlinesComponent},
 ];
 
 @NgModule({

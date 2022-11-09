@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-sm-12 mtheight">
             <div>
-                <button class="btncolor btn btn-success" routerLink="/addnewairlines">
+                <button class="btncolor btn btn-success" routerLink="addnewairlines">
                     <mat-icon class="icon">add</mat-icon>New Airlines
                 </button>
             </div>
@@ -31,7 +31,7 @@
                                   </label>
                             </td> 
                             <td>
-                                <button class="btn btn-danger" (click)="viewDetails(manageAirlines)">View
+                                <button class="btn btn-danger" routerLink="/addnewairlines/{{airLineList.airline_id}}">View
                                 </button>
                             </td>
                         </tr>

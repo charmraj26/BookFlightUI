@@ -9,8 +9,10 @@ import { AddnewairlinesModel } from './addnewairlines/addnewairlines.model';
   providedIn: 'root'
 })
 export class ManageService {
+
   addairlineUrl:string = environment.GateWayURL;
   public manageUrl: string = environment.GateWayURL;
+  post$: any;
 
   constructor(private http:HttpClient) { }
 
@@ -21,5 +23,9 @@ export class ManageService {
   public addAirlineSubmit(airline:AddnewairlinesModel):Observable<any>{
     return this.http.post(this.addairlineUrl + '/flight/Airline',airline)
    }
+
+   public getPrepopulateAirline(airline_id:any): Observable<any>{
+    return this.http.get(this.manageUrl + '/flight/Airline',airline_id);
+  }
 
 }

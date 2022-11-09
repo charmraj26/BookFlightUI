@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators  } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { combineLatest, map } from 'rxjs';
 import { SnackbarService } from 'src/app/snackbar.service';
 import { ManageService } from '../manage.service';
 import { AddnewairlinesModel } from './addnewairlines.model';
@@ -19,11 +20,31 @@ export class AddnewairlinesComponent implements OnInit {
   constructor(private formBuilder:FormBuilder,
               private router:Router,
               private snackBar:SnackbarService,
-              private addAirlineService:ManageService) { }
+              private addAirlineService:ManageService,
+              private route: ActivatedRoute) { }
+
+
+  // prepopulated Start
+
+  viewAirline = new FormGroup({
+    airline_name: new FormControl(''),
+    airline_logo:new FormControl(''),
+    contact_number:new FormControl(''),
+    contact_address:new FormControl('')
+  })
+
+  prepopulateMethod(){
+  
+  }
+  
+
+  // prepopulated End
 
   ngOnInit(): void {
     this.airlineFormGroupMethod();
+    this.prepopulateMethod();
   }
+
   private airlineFormGroupMethod(){
     this.airlineForm = this.formBuilder.group({
       
