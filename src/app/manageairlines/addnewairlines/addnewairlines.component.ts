@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators  } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { combineLatest, map } from 'rxjs';
+import {  Router } from '@angular/router';
 import { SnackbarService } from 'src/app/snackbar.service';
 import { ManageService } from '../manage.service';
 import { AddnewairlinesModel } from './addnewairlines.model';
+import { AddnewairlinesService } from './addnewairlines.service';
+
 
 @Component({
   selector: 'app-addnewairlines',
@@ -20,29 +21,10 @@ export class AddnewairlinesComponent implements OnInit {
   constructor(private formBuilder:FormBuilder,
               private router:Router,
               private snackBar:SnackbarService,
-              private addAirlineService:ManageService,
-              private route: ActivatedRoute) { }
-
-
-  // prepopulated Start
-
-  viewAirline = new FormGroup({
-    airline_name: new FormControl(''),
-    airline_logo:new FormControl(''),
-    contact_number:new FormControl(''),
-    contact_address:new FormControl('')
-  })
-
-  prepopulateMethod(){
-  
-  }
-  
-
-  // prepopulated End
+              private addAirlineService:AddnewairlinesService) { }
 
   ngOnInit(): void {
     this.airlineFormGroupMethod();
-    this.prepopulateMethod();
   }
 
   private airlineFormGroupMethod(){
@@ -70,11 +52,12 @@ export class AddnewairlinesComponent implements OnInit {
       addAirlineData.contact_address = this.f.contact_address.value;
 
       this.addAirlineSubscription = this.addAirlineService.addAirlineSubmit(addAirlineData).subscribe((data:any) =>{
-        if(data){
+        if(data.airline_name){
           this.router.navigate(['/manageairlines']);
           this.snackBar.successSnackBar('Registerd successfully','X')
-        }
-          
+        }      
+      },(error)=>{
+        this.snackBar.redSnackBar(error, 'X')
       })
     }
   }

@@ -19,6 +19,7 @@ import { ModelpopupComponent } from './modelpopup/modelpopup.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AddnewairlinesModule } from './manageairlines/addnewairlines/addnewairlines.module';
 import { ModelpopupService } from './modelpopup/modelpopup.service';
+import { AddnewairlinesService } from './manageairlines/addnewairlines/addnewairlines.service';
 
 
 
@@ -47,7 +48,7 @@ import { ModelpopupService } from './modelpopup/modelpopup.service';
 
     
   ],
-  providers: [RegisterService,LoginService,ManageService,ModelpopupService],
+  providers: [RegisterService,LoginService,ManageService,ModelpopupService,AddnewairlinesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
