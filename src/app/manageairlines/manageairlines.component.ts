@@ -31,7 +31,7 @@ export class ManageairlinesComponent implements OnInit {
 
   viewDetails(manageAirlines:any){
     this.modelService.openConfirmDialog('' + manageAirlines).afterClosed().subscribe(res=>{
-  
+      
     })
   
   }
