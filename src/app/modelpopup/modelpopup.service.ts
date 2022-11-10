@@ -7,6 +7,8 @@ import { ModelpopupComponent } from './modelpopup.component';
 })
 export class ModelpopupService {
 
+  AddnewairlinesModel =[];
+
   constructor(private matdialog:MatDialog) { }
 
   public openConfirmDialog(msg: string) {
@@ -17,7 +19,8 @@ export class ModelpopupService {
       
       position: { top: '250px' },
       data: {
-        message: msg
+       
+    
       }
     });
   }
