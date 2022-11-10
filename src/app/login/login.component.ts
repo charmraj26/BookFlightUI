@@ -56,7 +56,8 @@ export class LoginComponent implements OnInit {
 
       if(this.isSelected){
         this.adminSubscription = this.loginService.adminSubmit(new loginUserData).subscribe(res => {
-                this.router.navigate(['/dashboard']);
+          this.loginService.setLogin(res);    
+          this.router.navigate(['/dashboard']);
               })
       }else{
         this.loginUserSubscription = this.loginService.loginSubmit(loginData).subscribe(data => {
