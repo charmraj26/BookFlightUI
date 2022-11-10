@@ -20,6 +20,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { AddnewairlinesModule } from './manageairlines/addnewairlines/addnewairlines.module';
 import { ModelpopupService } from './modelpopup/modelpopup.service';
 import { AddnewairlinesService } from './manageairlines/addnewairlines/addnewairlines.service';
+import { ManageDiscountsModule } from './manage-discounts/manage-discounts.module';
+import { ManageDiscountsService } from './manage-discounts/manage-discounts.service';
 
 
 
@@ -44,11 +46,12 @@ import { AddnewairlinesService } from './manageairlines/addnewairlines/addnewair
     ManageairlinesModule,
     MatDialogModule,
     AddnewairlinesModule,
+    ManageDiscountsModule
     
 
     
   ],
-  providers: [RegisterService,LoginService,ManageService,ModelpopupService,AddnewairlinesService],
+  providers: [RegisterService,LoginService,ManageService,ModelpopupService,AddnewairlinesService,ManageDiscountsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

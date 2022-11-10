@@ -1,0 +1,41 @@
+.back{
+    background-color:white;
+    background-image: url("../../assets/images/bluebg.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100%;
+    padding-top: 20px;
+    
+}
+.bck{
+    margin-top: 80px;
+    padding:30px;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, rgb(26, 51, 98), rgba(21, 119, 184, 0.778));;
+    /* background-image: linear-gradient(to right, rgba(246, 246, 246, 0.034), rgba(21, 119, 184, 0.778)); */
+}
+th{
+    /* color:rgb(15, 182, 15); */
+    color:white;
+    font-size: 18px;;
+}
+td{
+    color:white;
+}
+.headin{
+    color:white;
+    font-size: 20px;
+}
+.buttonadd{
+    float:right;
+}
+mat-icon.addco {
+	display: inline-flex;
+	vertical-align: bottom;
+}
+.nodisk{
+    color:white;
+    text-align: center;
+    font-size: 20px;
+}

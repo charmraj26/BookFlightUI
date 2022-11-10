@@ -55,8 +55,9 @@ export class LoginComponent implements OnInit {
       loginData.password = btoa(this.f.password.value);
 
       if(this.isSelected){
-        this.adminSubscription = this.loginService.adminSubmit(loginData).subscribe(res => {
-                this.router.navigate(['/dashboard']);
+        this.adminSubscription = this.loginService.adminSubmit(new loginUserData).subscribe(res => {
+          this.loginService.setLogin(res);    
+          this.router.navigate(['/dashboard']);
               })
       }else{
         this.loginUserSubscription = this.loginService.loginSubmit(loginData).subscribe(data => {
