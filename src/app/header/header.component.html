@@ -1,6 +1,6 @@
 <div>
-    <mat-toolbar class="toptool" *ngIf="!isOpen">
-        <div class="container-fluid">
+    <mat-toolbar class="toptool" *ngIf="!isOpen !isAdmin">
+        <div class="container-fluid mt-2">
             <div class="row">
                 <div class="col-sm-8 ">
                     <mat-icon class="flight-main-icon">flight</mat-icon>
@@ -14,7 +14,7 @@
     </mat-toolbar>
 </div>
 <div>
-    <mat-toolbar *ngIf="isOpen" class="toptool">
+    <mat-toolbar *ngIf="isOpen !isAdmin" class="toptool">
         <div class="container-fluid">
             <div class="row ">
                 <div class="col-sm-8 mt-1" >
@@ -32,8 +32,8 @@
         </div>
     </mat-toolbar>
 </div>
-<!-- <div>
-    <mat-toolbar class="toptool mt-3">
+<div>
+    <mat-toolbar *ngIf="isAdmin" class="toptool">
         <div class="container-fluid">
             <div class="row ">
                 <div class="col-sm-8 mt-1" >
@@ -51,4 +51,4 @@
             </div>
         </div>
     </mat-toolbar>
-</div> -->
+</div>
