@@ -16,6 +16,7 @@ const routes: Routes = [
   { path:'addnewairlines', component:AddnewairlinesComponent},
   { path:'managediscounts', component:ManageDiscountsComponent}
   { path:'addnewairlines/:airline_id', component:AddnewairlinesComponent},
+  { path:'addnewairlines', component:AddnewairlinesComponent},
 ];
 
 @NgModule({
