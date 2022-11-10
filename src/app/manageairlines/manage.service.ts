@@ -23,7 +23,7 @@ export class ManageService {
 
 
    public getPrepopulateAirline(airline_id:any): Observable<any>{
-    return this.http.get(this.manageUrl + '/flight/Airline',airline_id);
+    return this.http.get(this.manageUrl + '/flight/Airline/'+ airline_id);
   }
 
 }
