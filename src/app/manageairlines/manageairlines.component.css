@@ -1,9 +1,10 @@
-.manageBg{
-    background-image: url("../../assets/images/managefltimg1.jpg");
+.bgblue{
+    background-image: url("../../assets/images/bluebg.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
     background-size:cover;
     min-height: 100%;
+    padding-top: 40px;
 }
 .mtheight{
     margin-top: 80px;
@@ -19,12 +20,10 @@
 }
 .tablehead{
     color:chartreuse;
-    text-align: center;
     font-size:19px;
     margin-bottom: 10px;
 }
 .tablebody{
-    text-align: center;
     color: white;
     font-size: 18px;
 	vertical-align: middle;
@@ -37,7 +36,7 @@ th{
 }
 
 @media 
-only screen and (max-width: 700px),
+only screen and (max-width: 769px),
 (min-device-width: 1050px) and (max-device-width: 1024px)  {
 
 	/* Force table to not be like tables anymore */
@@ -72,7 +71,6 @@ only screen and (max-width: 700px),
 		padding-right: 10px; 
 		white-space: nowrap;
 	}
-	
 	/*
 	Label the data
 	*/
@@ -82,15 +80,4 @@ only screen and (max-width: 700px),
 	td:nth-of-type(4):before { content: "Contact Address"; }
 	td:nth-of-type(5):before { content: "View"; }
 	td:nth-of-type(6):before { content: "Block/Unblock"; }
-}
-.bgblue{
-    background-image: url("../../assets/images/bluebg.jpg");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-size:cover;
-    min-height: 100%;
-    padding-top: 40px;
-}
-.form-switch {
-    padding-left: 5em;
 }

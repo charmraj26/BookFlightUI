@@ -26,18 +26,6 @@ export class LoginService {
     return this.http.post(this.loginUrl + '/flight/Admin/login', adminData)
   }
 
-  public GetToken() {
-    return sessionStorage.getItem('token') || '';  //jwt
-  }
-
-  public isLogged(): boolean{
-  return sessionStorage.getItem('token') ? true : false;   //logoutbtn
-  }
-
-  public removeToken(){
-    sessionStorage.removeItem('token')   //logoutbtn
-  }
-
   private handleError(error: HttpErrorResponse) {
     let errormessage=''
     if (error.status === 0) {

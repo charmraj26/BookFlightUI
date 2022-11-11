@@ -4,7 +4,7 @@ import { ManageairlinesComponent } from './manageairlines.component';
 import { MatIconModule} from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import {MatDialogModule} from '@angular/material/dialog';
-
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     CommonModule,
     MatIconModule,
     RouterModule,
-    MatDialogModule
+    MatDialogModule,
+    MatButtonToggleModule
   ]
 })
 export class ManageairlinesModule { }

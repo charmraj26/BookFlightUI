@@ -49,7 +49,7 @@
                     <div class="row mt-3">
                         <div class="col-8"></div>
                         <div class="col-2">
-                            <button class="btn btn-success" type="submit">SAVE</button>
+                            <button class="btn btn-success" type="submit" [disabled]="disable|async">SAVE</button>
                         </div>
                         <div class="col-2">
                             <button class="btn btn-dark" type="button" routerLink="/manageairlines">BACK</button>
