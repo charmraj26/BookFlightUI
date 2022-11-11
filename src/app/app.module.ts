@@ -22,6 +22,7 @@ import { ManageDiscountsModule } from './manage-discounts/manage-discounts.modul
 import { ManageDiscountsService } from './manage-discounts/manage-discounts.service';
 import { NewdiscountService } from './manage-discounts/addnewdiscounts/newdiscount.service';
 import { AddnewdiscountsModule } from './manage-discounts/addnewdiscounts/addnewdiscounts.module';
+import { HeaderComponent } from './header/header.component';
 
 
 
@@ -32,6 +33,7 @@ import { AddnewdiscountsModule } from './manage-discounts/addnewdiscounts/addnew
     AppComponent,
     DashboardComponent,
     ModelpopupComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
