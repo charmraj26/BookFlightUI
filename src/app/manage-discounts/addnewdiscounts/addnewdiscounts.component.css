@@ -1,0 +1,24 @@
+.top{
+    margin-top: 80px;
+}
+.bgimg{
+    background-color:white;
+    background-image: url("../../../assets/images/bluebg.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100%;
+    padding-top: 20px;
+    
+}
+mat-form-field {
+    width: 100%;   
+}
+
+label{
+    color:white;
+    font-size: medium;
+}
+.errortext{
+    color: white;
+}

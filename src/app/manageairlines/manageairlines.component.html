@@ -1,43 +1,46 @@
-<div class="container-fluid bgblue">
-    <div class="row">
-        <div class="col-sm-12 mtheight">
-            <div>
-                <button class="btncolor btn btn-success" routerLink="/addnewairlines">
-                    <mat-icon class="icon">add</mat-icon>New Airlines
-                </button>
-            </div>
-            <div>
-                <table class="table table-trappe tableovearll">
-                    <thead >
-                        <tr class="tablehead">
-                            <th>Logo</th>
-                            <th>Airline</th>
-                            <th>Contact Number</th>
-                            <th>Contact Address</th>
-                            <th>Block/Unblock</th>
-                            <th>View </th>
-                        </tr>
-                    </thead>
-                    <tbody >
-                        <tr class="tablebody" *ngFor="let airLineList of manageAirlines" nowrap>
-                            <td>{{airLineList.airline_log}}</td>
-                            <td>{{airLineList.airline_name }}</td>
-                            <td>{{airLineList.contact_address}}</td>
-                            <td>{{airLineList.contact_number}}</td>
-                            <td>
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" role="switch" 
-                                    id="flexSwitchCheckChecked" (click)="onClick()" checked>
-                                    <label class="form-check-label" for="flexSwitchCheckChecked"></label>
-                                  </div>
-                            </td> 
-                            <td>
-                                <button class="btn btn-danger" routerLink="/addnewairlines/{{airLineList.airline_id}}" [disabled]="block">View
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+<div class="bgblue">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 mtheight">
+                <div>
+                    <button class="btncolor btn btn-success" routerLink="/addnewairlines">
+                        <mat-icon class="icon">add</mat-icon>New Airlines
+                    </button>
+                </div>
+                <div>
+                    <table class="table table-trappe tableovearll">
+                        <thead>
+                            <tr class="tablehead">
+                                <th>Logo</th>
+                                <th>Airline Name</th>
+                                <th>Contact Number</th>
+                                <th>Contact Address</th>
+                                <th>Block/Unblock</th>
+                                <th>View </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="tablebody" *ngFor="let airLineList of manageAirlines" nowrap>
+                                <td>{{airLineList.airline_log}}</td>
+                                <td>{{airLineList.airline_name }}</td>
+                                <td>{{airLineList.contact_number}}</td>
+                                <td>{{airLineList.contact_address}}</td>
+                                <td>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch"
+                                            id="flexSwitchCheckChecked" checked >
+                                        <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <button class="btn btn-danger" (click)="toogleButtonState()"
+                                        routerLink="/addnewairlines/{{airLineList.airline_id}}">View
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

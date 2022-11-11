@@ -7,7 +7,8 @@ import { ManageDiscountsService } from './manage-discounts.service';
   styleUrls: ['./manage-discounts.component.css']
 })
 export class ManageDiscountsComponent implements OnInit {
-  public managediscount: any
+  public managediscount: any;
+  public submitted = true
   constructor(private manageService: ManageDiscountsService) { }
 
   ngOnInit(): void {

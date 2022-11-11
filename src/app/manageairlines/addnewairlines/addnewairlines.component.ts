@@ -18,6 +18,7 @@ export class AddnewairlinesComponent implements OnInit {
   addAirlineData: any;
   addAirlineSubscription: any;
   public isButtonVisible = true;
+  public disable:any;
 
   constructor(private formBuilder: FormBuilder,
     private router: Router,
@@ -29,12 +30,12 @@ export class AddnewairlinesComponent implements OnInit {
   ngOnInit(): void {
     this.airlineFormGroupMethod();
     this.prepopulateMethod();
+    this.disable = this.manageService.disableButton;  //save button disabled
   }
 
   // prepopulate start
   prepopulateMethod() {
-    this.manageService.getPrepopulateAirline(this.route.snapshot.params['airline_id']).subscribe((res) => {
-      console.log(this.route.snapshot.params['airline_id']);
+    this.manageService.getPrepopulateAirline(this.route.snapshot.params['airline_id']).subscribe(res => {
       this.airlineForm = new FormGroup({
         airline_name: new FormControl(res['airline_name']),
         airline_log: new FormControl(res["airline_logo"]),
