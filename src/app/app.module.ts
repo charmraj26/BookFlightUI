@@ -11,7 +11,6 @@ import { LoginService } from './login/login.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatIconModule} from '@angular/material/icon';
-import { HeaderComponent } from './header/header.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { ManageService } from './manageairlines/manage.service';
 import { ManageairlinesModule } from './manageairlines/manageairlines.module';
@@ -22,14 +21,13 @@ import { ModelpopupService } from './modelpopup/modelpopup.service';
 import { AddnewairlinesService } from './manageairlines/addnewairlines/addnewairlines.service';
 import { ManageDiscountsModule } from './manage-discounts/manage-discounts.module';
 import { ManageDiscountsService } from './manage-discounts/manage-discounts.service';
-import { JwtInterceptor } from './jwt.interceptor';
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     DashboardComponent,
     ModelpopupComponent,
   ],
@@ -52,9 +50,7 @@ import { JwtInterceptor } from './jwt.interceptor';
 
     
   ],
-  providers: [RegisterService,LoginService,ManageService,ModelpopupService,AddnewairlinesService,ManageDiscountsService,
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
-    ],
+  providers: [RegisterService,LoginService,ManageService,ModelpopupService,AddnewairlinesService,ManageDiscountsService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
