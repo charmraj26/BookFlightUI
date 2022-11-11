@@ -7,7 +7,7 @@
                         Manage Discount
                     </div>
                     <div class="col-5 ">
-                        <button class="btn btn-success buttonadd"  routerLink="/addnewairlines"><mat-icon class="addco">add</mat-icon> New Discount</button>
+                        <button class="btn btn-success buttonadd"  routerLink="/addnewdiscounts"><mat-icon class="addco">add</mat-icon> New Discount</button>
                     </div>
                 </div>
                 <div *ngIf="managediscount?.length > 0">
@@ -23,7 +23,7 @@
                         <tr *ngFor="let discount of managediscount">
                             <td>{{discount.discount_code}} </td>
                             <td>{{discount.discount_price}} </td>
-                            <td>{{discount.discount_comment}} </td>
+                            <td>{{discount.discount_comment}} </td>                           
                         </tr>
                     </tbody>
                 </table>

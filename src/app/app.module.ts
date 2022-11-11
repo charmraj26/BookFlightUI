@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginModule } from './login/login.module';
 import { RegisterModule } from './register/register.module';
 import { RegisterService } from './register/register.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginService } from './login/login.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -22,6 +22,8 @@ import { ManageDiscountsModule } from './manage-discounts/manage-discounts.modul
 import { ManageDiscountsService } from './manage-discounts/manage-discounts.service';
 import { NewdiscountService } from './manage-discounts/addnewdiscounts/newdiscount.service';
 import { AddnewdiscountsModule } from './manage-discounts/addnewdiscounts/addnewdiscounts.module';
+import { HeaderComponent } from './header/header.component';
+
 
 
 
@@ -31,6 +33,7 @@ import { AddnewdiscountsModule } from './manage-discounts/addnewdiscounts/addnew
     AppComponent,
     DashboardComponent,
     ModelpopupComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +53,7 @@ import { AddnewdiscountsModule } from './manage-discounts/addnewdiscounts/addnew
     AddnewdiscountsModule
 
   ],
+
   providers: [
     RegisterService,
     LoginService,
@@ -58,6 +62,7 @@ import { AddnewdiscountsModule } from './manage-discounts/addnewdiscounts/addnew
     ManageDiscountsService,
     NewdiscountService
   ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
