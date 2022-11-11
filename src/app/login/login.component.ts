@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   public submitted = false;
   public loginData: any;
   public isSelected: boolean = false;
+  public result: any;
 
   constructor(private formBuilder: FormBuilder,
     private loginService: LoginService,
@@ -53,14 +54,18 @@ export class LoginComponent implements OnInit {
       loginData.password = btoa(this.l.password.value);
 
       if(this.isSelected){
-        this.adminSubscription = this.loginService.adminSubmit(loginData).subscribe((res:any) => {
-          if(res){
+        this.adminSubscription = this.loginService.adminSubmit(loginData).subscribe(res => {   
+          this.result = res;
+            localStorage.setItem('token', this.result.token);
           this.router.navigate(['/dashboard']);
         }
               })
       }else{
-        this.loginUserSubscription = this.loginService.loginSubmit(loginData).subscribe((data:any) => {
-          if (data) {
+
+        this.loginUserSubscription = this.loginService.loginSubmit(loginData).subscribe(data => {
+          if (data.token) {
+            this.result = data;
+            localStorage.setItem('token', this.result.token);
             this.loginService.setLogin(data); //headerCondition
             this.router.navigate(['/dashboard']);
           }
