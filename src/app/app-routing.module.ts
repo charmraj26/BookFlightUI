@@ -14,7 +14,7 @@ const routes: Routes = [
   { path:'dashboard', component:DashboardComponent},
   { path:'manageairlines', component:ManageairlinesComponent},
   { path:'addnewairlines', component:AddnewairlinesComponent},
-  { path:'managediscounts', component:ManageDiscountsComponent}
+  { path:'managediscounts', component:ManageDiscountsComponent},
   { path:'addnewairlines/:airline_id', component:AddnewairlinesComponent},
 ];
 
