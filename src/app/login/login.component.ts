@@ -58,9 +58,9 @@ export class LoginComponent implements OnInit {
           this.result = res;
             localStorage.setItem('token', this.result.token);
           this.router.navigate(['/dashboard']);
-        }
-              })
-      }else{
+        })
+          }
+      else{
 
         this.loginUserSubscription = this.loginService.loginSubmit(loginData).subscribe(data => {
           if (data.token) {
