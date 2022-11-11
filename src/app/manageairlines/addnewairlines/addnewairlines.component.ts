@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators  } from '@angular/forms';
-import { Router } from '@angular/router';
+import {  Router } from '@angular/router';
 import { SnackbarService } from 'src/app/snackbar.service';
 import { ManageService } from '../manage.service';
 import { AddnewairlinesModel } from './addnewairlines.model';
 import { AddnewairlinesService } from './addnewairlines.service';
+
 
 @Component({
   selector: 'app-addnewairlines',
@@ -25,6 +26,7 @@ export class AddnewairlinesComponent implements OnInit {
   ngOnInit(): void {
     this.airlineFormGroupMethod();
   }
+
   private airlineFormGroupMethod(){
     this.airlineForm = this.formBuilder.group({
       
