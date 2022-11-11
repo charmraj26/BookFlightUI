@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginModule } from './login/login.module';
 import { RegisterModule } from './register/register.module';
 import { RegisterService } from './register/register.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginService } from './login/login.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
@@ -22,6 +22,7 @@ import { ModelpopupService } from './modelpopup/modelpopup.service';
 import { AddnewairlinesService } from './manageairlines/addnewairlines/addnewairlines.service';
 import { ManageDiscountsModule } from './manage-discounts/manage-discounts.module';
 import { ManageDiscountsService } from './manage-discounts/manage-discounts.service';
+import { JwtInterceptor } from './jwt.interceptor';
 
 
 
@@ -51,7 +52,9 @@ import { ManageDiscountsService } from './manage-discounts/manage-discounts.serv
 
     
   ],
-  providers: [RegisterService,LoginService,ManageService,ModelpopupService,AddnewairlinesService,ManageDiscountsService],
+  providers: [RegisterService,LoginService,ManageService,ModelpopupService,AddnewairlinesService,ManageDiscountsService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

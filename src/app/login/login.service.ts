@@ -39,10 +39,22 @@ export class LoginService {
     return throwError(() => new Error('Incorrect Username or Password'));
   }
 
+  IsloggedIn(){
+    return localStorage.getItem('token')!=null;
+  }
+
+  GetToken(){
+    return localStorage.getItem('token')||'';
+  }
+
+  removeToken(){
+    localStorage.removeItem('token')
+  }
+
   public login = new BehaviorSubject(null);
   public getLogin = this.login.asObservable();  //login
   public setLogin(login: any) {
     this.login.next(login);
   }
-
+ 
 }

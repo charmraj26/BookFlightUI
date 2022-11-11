@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginService } from '../login/login.service';
 
 @Component({
@@ -12,23 +13,24 @@ export class HeaderComponent implements OnInit {
   isOpen: any;
   isAdmin:any;
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService,
+              private route:Router) { }
 
   ngOnInit(): void {
     this.loginSubscription = this.loginService.getLogin.subscribe((data: any) => {
       if (data !== null && data !== undefined) {
         this.isOpen = true;
-      }else{
-        this.isOpen = false;
       }
     });
-    this.adminSubscription = this.loginService.getLogin.subscribe((res:any) => {
-      if(res !== null && res !== undefined){
-        this.isAdmin = true;
-      }else{
-        this.isAdmin = false;
-      }
-    })
+    
   }
+  logout(){
+    this.loginService.removeToken();
+    this.isOpen = false;
+    this.route.navigate(['/login'])
+  }
+ngOnDestroy(): void {
+  this.loginSubscription?.unsubscribe();
+}
 
 }
