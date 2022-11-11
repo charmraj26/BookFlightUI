@@ -9,18 +9,20 @@ import { RegisterService } from './register/register.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginService } from './login/login.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatIconModule} from '@angular/material/icon';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { ManageService } from './manageairlines/manage.service';
 import { ManageairlinesModule } from './manageairlines/manageairlines.module';
 import { ModelpopupComponent } from './modelpopup/modelpopup.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AddnewairlinesModule } from './manageairlines/addnewairlines/addnewairlines.module';
-import { ModelpopupService } from './modelpopup/modelpopup.service';
 import { AddnewairlinesService } from './manageairlines/addnewairlines/addnewairlines.service';
 import { ManageDiscountsModule } from './manage-discounts/manage-discounts.module';
 import { ManageDiscountsService } from './manage-discounts/manage-discounts.service';
+import { NewdiscountService } from './manage-discounts/addnewdiscounts/newdiscount.service';
+import { AddnewdiscountsModule } from './manage-discounts/addnewdiscounts/addnewdiscounts.module';
+
 
 
 
@@ -45,12 +47,20 @@ import { ManageDiscountsService } from './manage-discounts/manage-discounts.serv
     ManageairlinesModule,
     MatDialogModule,
     AddnewairlinesModule,
-    ManageDiscountsModule
-    
+    ManageDiscountsModule,
+    AddnewdiscountsModule
 
-    
   ],
-  providers: [RegisterService,LoginService,ManageService,ModelpopupService,AddnewairlinesService,ManageDiscountsService,],
+
+  providers: [
+    RegisterService,
+    LoginService,
+    ManageService,
+    AddnewairlinesService,
+    ManageDiscountsService,
+    NewdiscountService
+  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

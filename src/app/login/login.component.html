@@ -24,9 +24,9 @@
                         </div>
                         <div class='col-lg-10'>
                             <input type="text" formControlName="username" placeholder="Enter Username"
-                                class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
-                            <div *ngIf="submitted && f.username.errors" class="invalid-feedback errortext">
-                                <div *ngIf="f.username.errors.required">*Username is required</div>
+                                class="form-control" [ngClass]="{ 'is-invalid': submitted && l.username.errors }">
+                            <div *ngIf="submitted && l.username.errors" class="invalid-feedback errortext">
+                                <div *ngIf="l.username.errors.required">*Username is required</div>
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                         <div class="col-lg-10">
                             <div class="input-group">
                                 <input type="password" formControlName="password" placeholder="Enter Password"
-                                    class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+                                    class="form-control" [ngClass]="{ 'is-invalid': submitted && l.password.errors }"
                                     [type]="hideEye ? 'text' : 'password'">
                                 <div class="input-group-append">
                                     <span class="input-group-text">
@@ -47,8 +47,8 @@
                                             (click)="hideEyeText()"></i>
                                     </span>
                                 </div>
-                                <div *ngIf="submitted && f.password.errors" class="invalid-feedback errortext">
-                                    <div *ngIf="f.password.errors.required">*Password is required</div>
+                                <div *ngIf="submitted && l.password.errors" class="invalid-feedback errortext">
+                                    <div *ngIf="l.password.errors.required">*Password is required</div>
                                 </div>
                             </div>
                         </div>

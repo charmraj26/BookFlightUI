@@ -1,4 +1,3 @@
-import { Conditional } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -49,19 +48,20 @@ export class LoginComponent implements OnInit {
     this.submitted = true;
     if (!this.loginForm.valid) {
       this.snackBar.redSnackBar(`Required Mandatory Fields`, 'X');
-
     } else if (this.loginForm.valid){
       let loginData = new loginUserData();
-      loginData.username = this.f.username.value;
-      loginData.password = btoa(this.f.password.value);
+      loginData.username = this.l.username.value;
+      loginData.password = btoa(this.l.password.value);
 
       if(this.isSelected){
         this.adminSubscription = this.loginService.adminSubmit(loginData).subscribe(res => {   
           this.result = res;
             localStorage.setItem('token', this.result.token);
           this.router.navigate(['/dashboard']);
+        }
               })
       }else{
+
         this.loginUserSubscription = this.loginService.loginSubmit(loginData).subscribe(data => {
           if (data.token) {
             this.result = data;
@@ -77,7 +77,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  get f() {
+  get l() {
     return this.loginForm.controls;
   }
 

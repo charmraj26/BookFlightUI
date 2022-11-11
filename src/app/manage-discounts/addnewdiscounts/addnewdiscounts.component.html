@@ -1,0 +1,63 @@
+<div class="bgimg">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <form [formGroup]="newDiscountForm" (ngSubmit)="newDiscountSubmit()">
+                    <div class="row">
+                        <div class="col-6 top">
+                            <div class="form-group mt-3">
+                                <label for="discount_code" class="form-label">Discount Code </label>
+                                <input type="text" class="form-control" id="discount_code"
+                                    formControlName="discount_code" placeholder="Discount Code"
+                                    [ngClass]="{'is-invalid': submitted && d.discount_code.errors}" />
+                                <div *ngIf=" submitted && d.discount_code.errors" class="invalid-feedback errortext">
+                                    <div *ngIf="d.discount_code.errors.required">*Discount code is required </div>
+                                    <div *ngIf="d.discount_code.errors.pattern">
+                                        *Discount code should be Alphanumeric,Min:3 chars,Max:10 chars
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 top">
+                            <div class="form-group mt-3">
+                                <label for="discount_price" class="form-label">Discount Amount</label>
+                                <input type="number"  min="50"  class="form-control" id="discount_price"
+                                    formControlName="discount_price" placeholder="Discount Amount"
+                                    [ngClass]="{'is-invalid': submitted && d.discount_price.errors} " />
+                                <div *ngIf=" submitted && d.discount_price.errors" class="invalid-feedback errortext">
+                                    <div *ngIf="d.discount_price.errors.required">*Discount amount is Min:50 required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 mt-3">
+                            <div class="form-group">
+                                <label for="discount_comment" class="form-label">Discount Comments</label>
+                                <textarea type="text" class="form-control" name="discount_comment"
+                                    placeholder="Discount Comments" formControlName="discount_comment"
+                                    [ngClass]="{'is-invalid':submitted && d.discount_comment.errors} "
+                                    maxlength="500"></textarea>
+                                <div *ngIf=" submitted && d.discount_comment.errors" class="invalid-feedback errortext">
+                                    <div *ngIf="d.discount_comment.errors.required">*Discount comments is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row mt-3">
+                                    <div class="col-8"></div>
+                                    <div class="col-2">
+                                        <button class="btn btn-success" type="submit">SAVE</button>
+                                    </div>
+                                    <div class="col-2">
+                                        <button class="btn btn-dark" type="button"
+                                            routerLink="/managediscounts">BACK</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

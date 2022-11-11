@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { ModelpopupComponent } from '../modelpopup/modelpopup.component';
-import { ModelpopupService } from '../modelpopup/modelpopup.service';
 import { ManageService } from './manage.service';
 
 @Component({
@@ -11,28 +8,23 @@ import { ManageService } from './manage.service';
 })
 export class ManageairlinesComponent implements OnInit {
 
- public manageAirlines:any;
-  manageAirlineSubscription: any;
+  public manageAirlines: any;
+  public manageAirlineSubscription: any;
 
-
-  constructor(private matDialog:MatDialog,
-    private manageService:ManageService,
-    private modelService:ModelpopupService) { }
+  constructor(private manageService: ManageService) { }
 
   ngOnInit(): void {
     this.getAllManageAirline();
   }
 
-  public getAllManageAirline(){
-    this.manageService.getManageAirline().subscribe(data=>{
-      this.manageAirlines =data;
+  public getAllManageAirline() {
+    this.manageService.getManageAirline().subscribe(data => {
+      this.manageAirlines = data;
     })
   }
 
-  viewDetails(manageAirlines:any){
-    this.modelService.openConfirmDialog('' + manageAirlines).afterClosed().subscribe(res=>{
-      
-    })
-  
+  toogleButtonState(){
+    this.manageService.toogleDisable(); // prepopulate save button
   }
+
 }
