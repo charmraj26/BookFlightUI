@@ -9,12 +9,11 @@ import { LoginService } from '../login/login.service';
 })
 export class HeaderComponent implements OnInit {
   loginSubscription: any;
-  adminSubscription:any;
+  adminSubscription: any;
   isOpen: any;
-  isAdmin:any;
 
   constructor(private loginService: LoginService,
-              private route:Router) { }
+    private route: Router) { }
 
   ngOnInit(): void {
     this.loginSubscription = this.loginService.getLogin.subscribe((data: any) => {
@@ -22,15 +21,16 @@ export class HeaderComponent implements OnInit {
         this.isOpen = true;
       }
     });
-    
   }
-  logout(){
+
+  logout() {
     this.loginService.removeToken();
     this.isOpen = false;
     this.route.navigate(['/login'])
   }
-ngOnDestroy(): void {
-  this.loginSubscription?.unsubscribe();
-}
+
+  ngOnDestroy(): void {
+    this.loginSubscription?.unsubscribe();
+  }
 
 }
