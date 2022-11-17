@@ -1,16 +1,21 @@
 <div class="bgblue">
     <div class="container">
-        <div class="row">
-            <div class="col-sm-12 mtheight">
-                <div>
-                    <button class="btncolor btn btn-success" routerLink="/addnewairlines">
-                        <mat-icon class="icon">add</mat-icon>New Airlines
-                    </button>
+        <div class="row bck">
+            <div class="col-12  mx-auto">
+                <div class="row">
+                    <div class="col-7 headin">
+                        Manage Airlines
+                    </div>
+                    <div class="col-5 ">
+                        <button class="btncolor btn btn-success" routerLink="/addnewairlines">
+                            <mat-icon class="icon">add</mat-icon>New Airlines
+                        </button>
+                    </div>
                 </div>
                 <div>
                     <table class="table table-trapped tableovearll">
                         <thead>
-                            <tr class="tablehead">
+                            <tr >
                                 <th>Logo</th>
                                 <th>Airline Name</th>
                                 <th>Contact Number</th>
@@ -20,7 +25,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="tablebody" *ngFor="let airLineList of manageAirlines" nowrap>
+                            <tr  *ngFor="let airLineList of manageAirlines" nowrap>
                                 <td>{{airLineList.airline_log}}</td>
                                 <td>{{airLineList.airline_name }}</td>
                                 <td>{{airLineList.contact_number}}</td>
@@ -34,7 +39,7 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <button class="btn btn-danger" (click)="toogleButtonState()"
+                                    <button class="btn btn-light" id="showmenu" (click)="toogleButtonState()"
                                         routerLink="/addnewairlines/{{airLineList.airline_id}}">View
                                     </button>
                                 </td>
