@@ -4,5 +4,4 @@ export class AddnewdiscountsModel {
     discount_code!: string;
     discount_price!: string;
     discount_comment!: string;
-    
 }

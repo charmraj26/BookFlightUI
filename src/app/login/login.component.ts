@@ -10,6 +10,7 @@ import { LoginService } from './login.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
   public blueBg: string = "assets/images/bluebg.jpg"
   public flightimg: string = "assets/images/flightimg.jpg"
@@ -48,19 +49,19 @@ export class LoginComponent implements OnInit {
     this.submitted = true;
     if (!this.loginForm.valid) {
       this.snackBar.redSnackBar(`Required Mandatory Fields`, 'X');
-    } else if (this.loginForm.valid){
+    } else if (this.loginForm.valid) {
       let loginData = new loginUserData();
       loginData.username = this.l.username.value;
       loginData.password = btoa(this.l.password.value);
 
-      if(this.isSelected){
-        this.adminSubscription = this.loginService.adminSubmit(loginData).subscribe(res => {   
+      if (this.isSelected) {
+        this.adminSubscription = this.loginService.adminSubmit(loginData).subscribe(res => {
           this.result = res;
-            localStorage.setItem('token', this.result.token);
+          localStorage.setItem('token', this.result.token);
           this.router.navigate(['/dashboard']);
         })
-          }
-      else{
+      }
+      else {
 
         this.loginUserSubscription = this.loginService.loginSubmit(loginData).subscribe(data => {
           if (data.token) {
@@ -73,7 +74,6 @@ export class LoginComponent implements OnInit {
           // this.snackBar.redSnackBar(error, 'X')
         });
       }
-      
     }
   }
 

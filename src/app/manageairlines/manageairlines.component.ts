@@ -10,6 +10,7 @@ export class ManageairlinesComponent implements OnInit {
 
   public manageAirlines: any;
   public manageAirlineSubscription: any;
+  public blockUserSubscription: any;
 
   constructor(private manageService: ManageService) { }
 
@@ -23,7 +24,19 @@ export class ManageairlinesComponent implements OnInit {
     })
   }
 
-  toogleButtonState(){
+  onToggleBlock(e: any,is_blocked:any) {
+   console.log(is_blocked)
+    
+     
+      if(is_blocked== 0){
+        this.blockUserSubscription = this.manageService.putBlockAirline(is_blocked).subscribe((data)=>{
+        is_blocked== 0
+      
+     })
+    }
+  }
+
+  toogleButtonState() {
     this.manageService.toogleDisable(); // prepopulate save button
   }
 
