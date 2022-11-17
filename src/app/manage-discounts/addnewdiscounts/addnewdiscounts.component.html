@@ -21,11 +21,12 @@
                         <div class="col-6 top">
                             <div class="form-group mt-3">
                                 <label for="discount_price" class="form-label">Discount Amount</label>
-                                <input type="number"  min="50"  class="form-control" id="discount_price"
+                                <input type="number" min="50" class="form-control" id="discount_price"
                                     formControlName="discount_price" placeholder="Discount Amount"
                                     [ngClass]="{'is-invalid': submitted && d.discount_price.errors} " />
                                 <div *ngIf=" submitted && d.discount_price.errors" class="invalid-feedback errortext">
-                                    <div *ngIf="d.discount_price.errors.required">*Discount amount is Min:50 required</div>
+                                    <div *ngIf="d.discount_price.errors.required">*Discount amount is Min:50 required
+                                    </div>
                                 </div>
                             </div>
                         </div>

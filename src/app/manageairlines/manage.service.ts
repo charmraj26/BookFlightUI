@@ -9,7 +9,6 @@ import { environment } from 'src/environments/environment';
 })
 export class ManageService {
 
-  addairlineUrl: string = environment.GateWayURL;
   public manageUrl: string = environment.GateWayURL;
 
   constructor(private http: HttpClient) { }
@@ -22,15 +21,20 @@ export class ManageService {
     return this.http.get(this.manageUrl + '/flight/Airline/' + airline_id);
   }
 
-  // disable save button for prepopulate
+  // disable save button for prepopulate start
   private _disableButton: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   get disableButton(): Observable<boolean> {
     return this._disableButton.asObservable();
   }
 
-  toogleDisable(){
+  toogleDisable() {
     this._disableButton.next(!this._disableButton.value);
+  }
+  // disable save button for prepopulate end
+
+  public putBlockAirline(is_blocked:any){
+    return this.http.put(this.manageUrl + '/flight/Airline' , is_blocked)
   }
 
 }

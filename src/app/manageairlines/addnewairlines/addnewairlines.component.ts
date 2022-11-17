@@ -14,10 +14,9 @@ import { AddnewairlinesService } from './addnewairlines.service';
 })
 export class AddnewairlinesComponent implements OnInit {
   public airlineForm: FormGroup | any;
-  submitted = false;
-  addAirlineData: any;
-  addAirlineSubscription: any;
-  public isButtonVisible = true;
+  public submitted = false;
+  public addAirlineData: any;
+  public addAirlineSubscription: any;
   public disable:any;
 
   constructor(private formBuilder: FormBuilder,
@@ -29,7 +28,9 @@ export class AddnewairlinesComponent implements OnInit {
 
   ngOnInit(): void {
     this.airlineFormGroupMethod();
-    this.prepopulateMethod();
+    if (this.route.snapshot.params['airline_id'] !== undefined) {
+      this.prepopulateMethod();
+    }
     this.disable = this.manageService.disableButton;  //save button disabled
   }
 
@@ -86,7 +87,10 @@ export class AddnewairlinesComponent implements OnInit {
       return false;
     }
     return true;
+  }
 
+  toogleButtonState(){
+    this.manageService.toogleDisable(); // prepopulate save button
   }
   ngOnDestroy(): void {
     this.addAirlineSubscription?.unsubscribe();

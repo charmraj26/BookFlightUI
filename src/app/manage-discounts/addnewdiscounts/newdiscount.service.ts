@@ -9,24 +9,24 @@ import { AddnewdiscountsModel } from './addnewdiscounts.model';
 })
 export class NewdiscountService {
 
-  public addNewDiscountURL:string = environment.GateWayURL;
+  public addNewDiscountURL: string = environment.GateWayURL;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
- public newDiscountSubmit(newDiscount:AddnewdiscountsModel):Observable<any>{
-  return this.http.post(this.addNewDiscountURL + '/flight/Discount', newDiscount).pipe(
-    catchError(this.handleError)
-  );
+  public newDiscountSubmit(newDiscount: AddnewdiscountsModel): Observable<any> {
+    return this.http.post(this.addNewDiscountURL + '/flight/Discount', newDiscount).pipe(
+      catchError(this.handleError)
+    );
   }
   private handleError(error: HttpErrorResponse) {
-    let errorMessage ='';
+    let errorMessage = '';
 
     if (error.status === 0) {
       console.error('An error occurred:', error.error);
-    } 
+    }
     console.error(error.error);
-      errorMessage = error.error;
+    errorMessage = error.error;
     return throwError(() => new Error(errorMessage));
   }
-  
+
 }

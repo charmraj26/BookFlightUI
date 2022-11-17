@@ -10,44 +10,44 @@ import { loginUserData } from './login.model';
 export class LoginService {
 
   public loginUrl: string = environment.GateWayURL;
-  
+
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
   }
 
-  loginSubmit(userData:loginUserData):Observable<any> {
+  loginSubmit(userData: loginUserData): Observable<any> {
     return this.http.post(this.loginUrl + `/flight/User/login`, userData).pipe(
       catchError(this.handleError)
     );
   }
 
-  adminSubmit(adminData:loginUserData):Observable<any>{
+  adminSubmit(adminData: loginUserData): Observable<any> {
     return this.http.post(this.loginUrl + '/flight/Admin/login', adminData)
   }
 
   private handleError(error: HttpErrorResponse) {
-    let errormessage=''
+    let errormessage = ''
     if (error.status === 0) {
       console.error('An error occurred:', error.error);
     } else {
       console.error(
         ` ${error.status}, body was: `, error.error);
-        errormessage=`${error.status}, body was: `, error.error;
+      errormessage = `${error.status}, body was: `, error.error;
     }
-    errormessage='Something bad happened; please try again later.';
+    errormessage = 'Something bad happened; please try again later.';
     return throwError(() => new Error('Incorrect Username or Password'));
   }
 
-  IsloggedIn(){
-    return localStorage.getItem('token')!=null;
+  IsloggedIn() {
+    return localStorage.getItem('token') != null;
   }
 
-  GetToken(){
-    return localStorage.getItem('token')||'';
+  GetToken() {
+    return localStorage.getItem('token') || '';
   }
 
-  removeToken(){
+  removeToken() {
     localStorage.removeItem('token')
   }
 
@@ -56,5 +56,5 @@ export class LoginService {
   public setLogin(login: any) {
     this.login.next(login);
   }
- 
+
 }
