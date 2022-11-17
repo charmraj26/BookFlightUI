@@ -18,6 +18,10 @@ li{
     display: inline; 
     float: left;
 }
+li a:hover {
+    color: white;
+    opacity: 1;
+}
 li a {
     color: white;
     text-align: center;
@@ -37,6 +41,10 @@ li a {
     vertical-align:text-bottom;
     opacity: 0.5;
   }  
+ li a.active-list-item {
+    color: white;
+    opacity: 1;
+  }
 
   @media only screen and (max-width: 576px)
  {

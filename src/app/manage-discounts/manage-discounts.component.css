@@ -13,16 +13,19 @@
     padding:30px;
     border-radius: 10px;
     background-image: linear-gradient(to right, rgb(26, 51, 98), rgba(21, 119, 184, 0.778));;
-    /* background-image: linear-gradient(to right, rgba(246, 246, 246, 0.034), rgba(21, 119, 184, 0.778)); */
+    
 }
 th{
-    /* color:rgb(15, 182, 15); */
+    
     color:white;
-    font-size: 18px;;
+    font-size: 18px;
+    text-align: center;
 }
 td{
     color:white;
+    text-align: center;
 }
+
 .headin{
     color:white;
     font-size: 20px;
